@@ -180,7 +180,56 @@ void Task1133()
 	DemoGetPower(-2.0, 5);
 }
 
+/// <summary>
+/// Функция, которую требуется написать по заданию 1.1.3.4.
+/// </summary>
+/// <param name="value">Значение, которое нужно округлить до десятков.</param>
+void RoundToTens(int& value)
+{
+	if (value % 10 < 5)
+	{
+		value = value / 10 * 10;
+	}
+	else
+	{
+		value = ((value / 10) + 1) * 10;
+	}
+}
 
+/// <summary>
+/// Функция, которая выполняет задачу для задания 1.1.3.4.
+/// </summary>
+void Task1134()
+{
+	int a = 14;
+	cout << "For " << a << " rounded value is ";
+	RoundToTens(a);
+	cout << a << "\n";
+
+	a = 191;
+	cout << "For " << a << " rounded value is ";
+	RoundToTens(a);
+	cout << a << "\n";
+
+	a = 27;
+	cout << "For " << a << " rounded value is ";
+	RoundToTens(a);
+	cout << a << "\n";
+}
+
+void Task1141()
+{
+	int a = 5;
+	int b = 4;
+	cout << "Address of a: " << &a << endl;
+	cout << "Address of b: " << &b << endl;
+
+	double c = 13.5;
+	cout << "Address of c: " << &c << endl;
+
+	bool d = true;
+	cout << "Address of d: " << &d << endl;
+}
 
 /// <summary>
 /// Основная функция программы, позволяет пользователю взаимодействовать с программой.
@@ -237,6 +286,14 @@ int main()
 		case 8:
 			cout << "\nTask 1.1.3.3:\n" << endl;
 			Task1133();
+			break;
+		case 9:
+			cout << "\nTask 1.1.3.4:\n" << endl;
+			Task1134();
+			break;
+		case 10:
+			cout << "\nTask 1.1.4.1:\n" << endl;
+			Task1141();
 			break;
 		default:
 			cout << "\nIncorrect input\n" << endl;

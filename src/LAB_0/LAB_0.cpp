@@ -140,21 +140,66 @@ void Task1123()
 }
 
 /// <summary>
+/// Функция, которую требуется написать по заданию 1.1.3.1.
+/// </summary>
+/// <param name="base">Значение, которое возводится в степень exponent.</param>
+/// <param name="exponent">Степень, в которую возводится значение base.</param>
+/// <returns>Возвращает значение, равное возведенному значению base в степень exponent.</returns>
+double GetPower(double base, int exponent)
+{
+	return pow(base, exponent);
+}
+
+/// <summary>
+/// Функция, которая выполняет задачу для задания 1.1.3.2.
+/// </summary>
+void Task1132()
+{
+	cout << "2.0 ^ 5 = " << GetPower(2.0, 5) << endl;
+	cout << "3.0 ^ 4 = " << GetPower(3.0, 4) << endl;
+	cout << "-2.0 ^ 5 = " << GetPower(-2.0, 5) << endl;
+}
+
+/// <summary>
+/// Функция, которую требуется написать по заданию 1.1.3.3.
+/// </summary>
+/// <param name="base">Значение, которое возводится в степень exponent.</param>
+/// <param name="exponent">Степень, в которую возводится значение base.</param>
+void DemoGetPower(double base, int exponent)
+{
+	cout << base << " ^ " << exponent << " = " << GetPower(base, exponent) << endl;
+}
+
+/// <summary>
+/// Функция, которая выполняет задачу для задания 1.1.3.3.
+/// </summary>
+void Task1133()
+{
+	DemoGetPower(2.0, 5);
+	DemoGetPower(3.0, 4);
+	DemoGetPower(-2.0, 5);
+}
+
+
+
+/// <summary>
 /// Основная функция программы, позволяет пользователю взаимодействовать с программой.
 /// </summary>
 /// <returns></returns>
 int main()
-{
-	//setlocale(LC_ALL, "russian");
-	
+{	
 	int choice;
 
 	while (true)
 	{
-		cout << "1) 1.1.1.1  2) 1.1.1.2\n";
-		cout << "3) 1.1.2.1  4) 1.1.2.2\n";
-		cout << "5) 1.1.2.3  6) 1.1.3.1\n";
-		cout << "Choice task (\"0\" for exit): ";
+		cout << "1) 1.1.1.1   2) 1.1.1.2\n";
+		cout << "3) 1.1.2.1   4) 1.1.2.2\n";
+		cout << "5) 1.1.2.3   6) 1.1.3.1\n";
+		cout << "7) 1.1.3.2   8) 1.1.3.3\n";
+		cout << "9) 1.1.3.4  10) 1.1.4.1\n";
+
+		cout << "\nChoice task (\"0\" for exit): ";
+
 		cin >> choice;
 		switch (choice)
 		{
@@ -179,6 +224,19 @@ int main()
 		case 5:
 			cout << "\nTask 1.1.2.3:\n" << endl;
 			Task1123();
+			break;
+		case 6:
+			cout << "\nTask 1.1.3.1:\nPart of code:\n\n";
+			cout << "double GetPower(double base, int exponent)\n";
+			cout << "{\n	return pow(base, exponent);\n}\n";
+			break;
+		case 7:
+			cout << "\nTask 1.1.3.2:\n" << endl;
+			Task1132();
+			break;
+		case 8:
+			cout << "\nTask 1.1.3.3:\n" << endl;
+			Task1133();
 			break;
 		default:
 			cout << "\nIncorrect input\n" << endl;

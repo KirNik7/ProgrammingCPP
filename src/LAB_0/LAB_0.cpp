@@ -217,6 +217,9 @@ void Task1134()
 	cout << a << "\n";
 }
 
+/// <summary>
+/// Функция, которая выполняет задачу для задания 1.1.4.1.
+/// </summary>
 void Task1141()
 {
 	int a = 5;
@@ -231,6 +234,78 @@ void Task1141()
 	cout << "Address of d: " << &d << endl;
 }
 
+void Task1142()
+{
+	int a[10] = { 1, 2, 7, -1, 5, 3, -1, 7, 1, 6 };
+	cout << "Size of int type: " << sizeof(int) << endl;
+	for (int i = 0; i < 10; i++)
+	{
+		cout << "Address of a[" << i << "]: " << &a[i] << endl;
+	}
+
+	cout << endl;
+	cout << "Size of double type: " << sizeof(double) << endl;
+	double b[10] = { 1.0, 2.0, 7.0, -1.0, 5.0, 3.5, -1.8, 7.2, 1.9, 6.2};
+	for (int i = 0; i < 10; i++)
+	{
+		cout << "Address of b[" << i << "]: " << &b[i] << endl;
+	}
+}
+
+void Task1143()
+{
+	int a = 5;
+	int& b = a;
+
+	cout << "Address of a: " << &a << endl;
+	cout << "Address of b: " << &b << endl;
+
+	cout << endl;
+	b = 7;
+	cout << "Value of a: " << a << endl;
+}
+
+void Foo(double a)
+{
+	cout << "Address of a in Foo(): " << &a << endl;
+	cout << "Value of a in Foo(): " << a << endl;
+
+	a = 15.0;
+	cout << "New value of a in Foo(): " << a << endl;
+}
+
+void Task1144()
+{
+	double a = 5.0;
+	cout << "Address of a in main(): " << &a << endl;
+	cout << "Value of a in main(): " << a << endl;
+	cout << endl;
+
+	Foo(a);
+
+	cout << endl;
+	cout << "Value of a in main(): " << a << endl;
+}
+
+void Foo2(double& a)
+{
+	cout << "Address of a in Foo(): " << &a << endl;
+	cout << "Value of a in Foo(): " << a << endl;
+	a = 15.0;
+	cout << "New value of a in Foo(): " << a << endl;
+}
+
+void Task1145()
+{
+	double a = 5.0;
+	cout << "Address of a in main(): " << &a << endl;
+	cout << "Value of a in main(): " << a << endl;
+	cout << endl;
+	Foo2(a);
+	cout << endl;
+	cout << "Value of a in main(): " << a << endl;
+}
+
 /// <summary>
 /// Основная функция программы, позволяет пользователю взаимодействовать с программой.
 /// </summary>
@@ -241,11 +316,19 @@ int main()
 
 	while (true)
 	{
-		cout << "1) 1.1.1.1   2) 1.1.1.2\n";
-		cout << "3) 1.1.2.1   4) 1.1.2.2\n";
-		cout << "5) 1.1.2.3   6) 1.1.3.1\n";
-		cout << "7) 1.1.3.2   8) 1.1.3.3\n";
-		cout << "9) 1.1.3.4  10) 1.1.4.1\n";
+		cout << " 1) 1.1.1.1   2) 1.1.1.2\n";
+		cout << " 3) 1.1.2.1   4) 1.1.2.2\n";
+		cout << " 5) 1.1.2.3   6) 1.1.3.1\n";
+		cout << " 7) 1.1.3.2   8) 1.1.3.3\n";
+		cout << " 9) 1.1.3.4  10) 1.1.4.1\n";
+		cout << "11) 1.1.4.2  12) 1.1.4.3\n";
+		cout << "13) 1.1.4.4  14) 1.1.4.5\n";
+		cout << "15) 1.1.4.6  16) 1.1.4.7\n";
+		cout << "17) 1.1.4.8  18) 1.1.5.1\n";
+		cout << "19) 1.1.5.2  20) 1.1.5.3\n";
+		cout << "21) 1.1.5.4  22) 1.1.5.5\n";
+		cout << "23) 1.1.5.6  24) 1.1.5.7\n";
+		cout << "25) 1.1.5.8\n";
 
 		cout << "\nChoice task (\"0\" for exit): ";
 
@@ -294,6 +377,66 @@ int main()
 		case 10:
 			cout << "\nTask 1.1.4.1:\n" << endl;
 			Task1141();
+			break;
+		case 11:
+			cout << "\nTask 1.1.4.2:\n" << endl;
+			Task1142();
+			break;
+		case 12:
+			cout << "\nTask 1.1.4.3:\n" << endl;
+			Task1143();
+			break;
+		case 13:
+			cout << "\nTask 1.1.4.4:\n" << endl;
+			Task1144();
+			break;
+		case 14:
+			cout << "\nTask 1.1.4.5:\n" << endl;
+			Task1145();
+			break;
+		case 15:
+			cout << "\nTask 1.1.4.6:\n" << endl;
+			//Task1146();
+			break;
+		case 16:
+			cout << "\nTask 1.1.4.7:\n" << endl;
+			//Task1147();
+			break;
+		case 17:
+			cout << "\nTask 1.1.4.8:\n" << endl;
+			//Task1148();
+			break;
+		case 18:
+			cout << "\nTask 1.1.5.1:\n" << endl;
+			//Task1151();
+			break;
+		case 19:
+			cout << "\nTask 1.1.5.2:\n" << endl;
+			//Task1152();
+			break;
+		case 20:
+			cout << "\nTask 1.1.5.3:\n" << endl;
+			//Task1153();
+			break;
+		case 21:
+			cout << "\nTask 1.1.5.4:\n" << endl;
+			//Task1154();
+			break;
+		case 22:
+			cout << "\nTask 1.1.5.5:\n" << endl;
+			//Task1155();
+			break;
+		case 23:
+			cout << "\nTask 1.1.5.6:\n" << endl;
+			//Task1156();
+			break;
+		case 24:
+			cout << "\nTask 1.1.5.7:\n" << endl;
+			//Task1157();
+			break;
+		case 25:
+			cout << "\nTask 1.1.5.8:\n" << endl;
+			//Task1158();
 			break;
 		default:
 			cout << "\nIncorrect input\n" << endl;

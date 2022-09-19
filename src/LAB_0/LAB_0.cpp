@@ -105,21 +105,56 @@ void Task1122()
 }
 
 /// <summary>
+/// Функция, которая выполняет задачу для задания 1.1.2.3.
+/// </summary>
+void Task1123()
+{
+	const int n = 8;
+	char mas[n];
+
+	cout << "Enter array of 8 chars\n";
+
+	for (int i = 0; i < n; i++)
+	{
+		cout << "\na[" << i << "]:";
+		cin >> mas[i];
+	}
+
+	cout << "\nYour array is:\n";
+
+	for (int i = 0; i < n; i++)
+	{
+		cout << mas[i] << " ";
+	}
+
+	cout << "\n\nAll letters in your array:\n";
+
+	for (int i = 0; i < n; i++)
+	{
+		if (mas[i] >= 'a' && mas[i] <= 'z')
+		{
+			cout << mas[i] << " ";
+		}
+	}
+	cout << "\n";
+}
+
+/// <summary>
 /// Основная функция программы, позволяет пользователю взаимодействовать с программой.
 /// </summary>
 /// <returns></returns>
 int main()
 {
-	setlocale(LC_ALL, "russian");
+	//setlocale(LC_ALL, "russian");
 	
 	int choice;
 
 	while (true)
 	{
-		cout << "1) 1.1.1.1\n2) 1.1.1.2\n";
-		cout << "3) 1.1.2.1\n4) 1.1.2.2\n";
-		cout << "5) 1.1.2.3\n6) 1.1.3.1\n";
-		cout << "Choice task(\"0\" for exit): ";
+		cout << "1) 1.1.1.1  2) 1.1.1.2\n";
+		cout << "3) 1.1.2.1  4) 1.1.2.2\n";
+		cout << "5) 1.1.2.3  6) 1.1.3.1\n";
+		cout << "Choice task (\"0\" for exit): ";
 		cin >> choice;
 		switch (choice)
 		{

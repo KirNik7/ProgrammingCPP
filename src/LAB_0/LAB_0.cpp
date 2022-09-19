@@ -1,5 +1,9 @@
 ﻿#include <iostream>
 #include <cmath>
+#include <cstdlib>
+#include <crtdbg.h>
+#include <stdlib.h>
+#define _CRTDBG_MAP_ALLOC
 
 using namespace std;
 
@@ -66,7 +70,7 @@ void Task1121()
 			}
 		}
 	}
-	
+
 	for (int i = 0; i < n; i++)
 	{
 		cout << mas[i] << " ";
@@ -88,7 +92,7 @@ void Task1122()
 	cout << "Source array is:\n";
 	for (int i = 0; i < n; i++)
 	{
-		mas[i] = floor((double)rand() / (double)RAND_MAX * (1000 - -1000) + -1000)/10;
+		mas[i] = floor((double)rand() / (double)RAND_MAX * (1000 - -1000) + -1000) / 10;
 		cout << mas[i] << " ";
 	}
 	
@@ -148,6 +152,13 @@ void Task1123()
 double GetPower(double base, int exponent)
 {
 	return pow(base, exponent);
+}
+
+void Task1131()
+{
+	cout << "Part of code:\n\n";
+	cout << "double GetPower(double base, int exponent)\n";
+	cout << "{\n	return pow(base, exponent);\n}\n";
 }
 
 /// <summary>
@@ -301,9 +312,271 @@ void Task1145()
 	cout << "Address of a in main(): " << &a << endl;
 	cout << "Value of a in main(): " << a << endl;
 	cout << endl;
+
 	Foo2(a);
+
 	cout << endl;
 	cout << "Value of a in main(): " << a << endl;
+}
+
+void Task1146()
+{
+	int a = 5;
+	int* pointer = &a;
+
+	cout << "Address of a: " << &a << endl;
+	cout << "Address in pointer: " << pointer << endl;
+	cout << "Address of pointer: " << &pointer << endl;
+
+	cout << endl;
+	*pointer = 7;
+	cout << "Value in a: " << a << endl;
+	cout << "Value by pointer address: " << *pointer << endl;
+}
+
+void Task1147()
+{
+	cout << "int* p - объявление указателя.\n*p - разыменование.\na * b - умножение.\n";
+}
+
+void Foo3(double* a)
+{
+	cout << "Address in pointer: " << a << endl;
+	cout << "Address of pointer: " << &a << endl;
+	cout << "Value in pointer address: " << *a << endl;
+
+	*a = 15.0;
+	cout << "New value in pointer address: " << *a << endl;
+}
+
+void Task1148()
+{
+	double value = 5.0;
+	double* pointer = &value;
+	cout << "Address of value in main(): " << &value << endl;
+	cout << "Address in pointer in main(): " << pointer << endl;
+	cout << "Address of pointer in main(): " << &pointer << endl;
+	cout << "Value of a in main(): " << value << endl;
+	cout << endl;
+
+	Foo3(pointer);
+	cout << endl;
+	cout << "Value of a in main(): " << value << endl;
+}
+
+void Task1151()
+{
+	const int n = 8;
+	double* mas = new double[n] {1.0, 15.0, -8.2, -3.5, 12.6, 38.4, -0.5, 4.5};
+
+	cout << "Array of double:" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	delete[] mas;
+	cout << endl;
+}
+
+void Task1152()
+{
+	const int n = 8;
+	bool* mas = new bool[n] {true, false, true, true, false, true, false, false};
+
+	cout << "Array of double:" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	delete[] mas;
+	cout << endl;
+}
+
+void Task1153()
+{
+	int n;
+	cout << "Enter char array size: ";
+	cin >> n;
+	cout << endl;
+	char* mas = new char[n];
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Enter a[" << i << "]: ";
+		cin >> mas[i];
+	}
+
+	cout << "\nYour char array is:" << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	delete[] mas;
+	cout << endl;
+}
+
+void SortArrayDouble(double* mas, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (mas[j] > mas[i])
+			{
+				swap(mas[j], mas[i]);
+			}
+		}
+	}
+}
+
+void Task1154()
+{
+	const int n = 10;
+	double* mas = new double[n];
+
+	cout << "Array of double:\n";
+	for (int i = 0; i < n; i++)
+	{
+		mas[i] = floor((double)rand() / (double)RAND_MAX * (1000 - -1000) + -1000) / 10;
+		cout << mas[i] << " ";
+	}
+
+	cout << "\nSorted array of double:\n";
+	SortArrayDouble(mas, n);
+	for (int i = 0; i < n; i++)
+	{
+		cout << mas[i] << " ";
+	}
+
+	delete[] mas;
+	cout << endl;
+}
+
+void SearchIndex(int* mas, int n, int searchingValue)
+{
+	for (int i = 0; i < n; i++)
+	{
+		if (mas[i] == searchingValue)
+		{
+			cout << i;
+			break;
+		}
+	}
+}
+
+void Task1155()
+{
+	const int n = 10;
+	int* mas = new int[n];
+	int searchingValue;
+
+	cout << "Int array:\n";
+	for (int i = 0; i < n; i++)
+	{
+		mas[i] = rand() % 50 - 10;
+		cout << mas[i] << " ";
+	}
+	cout << "\n\nEnter searching value: ";
+	cin >> searchingValue;
+	cout << "Index of searching value " << searchingValue << " is: ";
+	SearchIndex(mas, n, searchingValue);
+	cout << endl;
+}
+
+void FindLetterInArrayChar(char* mas, int n)
+{
+	int count = 0;
+	for (int i = 0; i < n; i++)
+	{
+		if (mas[i] >= 'a' && mas[i] <= 'z')
+		{
+			cout << mas[i] << " ";
+			count++;
+		}
+	}
+	cout << "\n\nCount of letters: " << count << endl;
+}
+
+void Task1156()
+{
+	const int n = 15;
+	char* mas = new char[n] {'a', '5', 'm', 'i', '%', '!', 's', 'p', '*', '9', 'f', '^', ';', 'q', 'k'};
+	cout << "Char array is:\n";
+	for (int i = 0; i < n; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	cout << "\n\nLetters in array:\n";
+	FindLetterInArrayChar(mas, n);
+}
+
+int* MakeRandomArray(int arraySize)
+{
+	int* mas = new int[arraySize];
+	for (int i = 0; i < arraySize; i++)
+	{
+		mas[i] = 0 + rand() % (100 - 0 + 1);
+	}
+	return mas;
+}
+
+void WriteArray(int* mas, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	cout << endl;
+}
+
+void Task1157()
+{
+	int lengthArray1 = 5;
+	int lengthArray2 = 8;
+	int lengthArray3 = 13;
+	int* array1 = MakeRandomArray(lengthArray1);
+	int* array2 = MakeRandomArray(lengthArray2);
+	int* array3 = MakeRandomArray(lengthArray3);
+	WriteArray(array1, lengthArray1);
+	WriteArray(array2, lengthArray2);
+	WriteArray(array3, lengthArray3);
+}
+
+int* ReadArray(int count)
+{
+	int* values = new int[count];
+	for (int i = 0; i < count; i++)
+	{
+		cin >> values[i];
+	}
+	return values;
+}
+
+int CountPositiveValues(int* values, int count)
+{
+	int result = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if (values[i] > 0)
+		{
+			result++;
+		}
+	}
+	return result;
+}
+
+void Task1158()
+{
+	int count = 15;
+	int* values = ReadArray(count);
+	cout << "Count is: " << CountPositiveValues(values, count) << endl;
+	
+	delete[] values;
+
+	count = 20;
+	values = ReadArray(count);
+	cout << "Count is: " << CountPositiveValues(values, count) << endl;
+
+	delete[] values;
 }
 
 /// <summary>
@@ -311,7 +584,10 @@ void Task1145()
 /// </summary>
 /// <returns></returns>
 int main()
-{	
+{
+	setlocale(LC_ALL, "Russian");
+	srand(time(0));
+
 	int choice;
 
 	while (true)
@@ -358,9 +634,8 @@ int main()
 			Task1123();
 			break;
 		case 6:
-			cout << "\nTask 1.1.3.1:\nPart of code:\n\n";
-			cout << "double GetPower(double base, int exponent)\n";
-			cout << "{\n	return pow(base, exponent);\n}\n";
+			cout << "\nTask 1.1.3.1:\n" << endl;
+			Task1131();
 			break;
 		case 7:
 			cout << "\nTask 1.1.3.2:\n" << endl;
@@ -396,47 +671,48 @@ int main()
 			break;
 		case 15:
 			cout << "\nTask 1.1.4.6:\n" << endl;
-			//Task1146();
+			Task1146();
 			break;
 		case 16:
 			cout << "\nTask 1.1.4.7:\n" << endl;
-			//Task1147();
+			Task1147();
 			break;
 		case 17:
 			cout << "\nTask 1.1.4.8:\n" << endl;
-			//Task1148();
+			Task1148();
 			break;
 		case 18:
 			cout << "\nTask 1.1.5.1:\n" << endl;
-			//Task1151();
+			Task1151();
 			break;
 		case 19:
 			cout << "\nTask 1.1.5.2:\n" << endl;
-			//Task1152();
+			Task1152();
 			break;
 		case 20:
 			cout << "\nTask 1.1.5.3:\n" << endl;
-			//Task1153();
+			Task1153();
 			break;
 		case 21:
 			cout << "\nTask 1.1.5.4:\n" << endl;
-			//Task1154();
+			Task1154();
 			break;
 		case 22:
 			cout << "\nTask 1.1.5.5:\n" << endl;
-			//Task1155();
+			Task1155();
 			break;
 		case 23:
 			cout << "\nTask 1.1.5.6:\n" << endl;
-			//Task1156();
+			Task1156();
 			break;
 		case 24:
 			cout << "\nTask 1.1.5.7:\n" << endl;
-			//Task1157();
+			Task1157();
 			break;
 		case 25:
 			cout << "\nTask 1.1.5.8:\n" << endl;
-			//Task1158();
+			Task1158();
+			_CrtDumpMemoryLeaks();
 			break;
 		default:
 			cout << "\nIncorrect input\n" << endl;

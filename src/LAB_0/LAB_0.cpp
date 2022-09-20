@@ -7,9 +7,6 @@
 
 using namespace std;
 
-/// <summary>
-/// Функция, которая выполняет задачу для задания 1.1.1.1.
-/// </summary>
 void Task1111()
 {
 	double add = 1.0;
@@ -22,9 +19,6 @@ void Task1111()
 	cout << "Total sum is " << sum << endl;
 }
 
-/// <summary>
-/// Функция, которая выполняет задачу для задания 1.1.1.2.
-/// </summary>
 void Task1112()
 {
 	double add = 1.0;
@@ -44,9 +38,6 @@ void Task1112()
 	cout << "Total sum is " << sum << endl;
 }
 
-/// <summary>
-/// Функция, которая выполняет задачу для задания 1.1.2.1.
-/// </summary>
 void Task1121()
 {
 	const int n = 10;
@@ -79,9 +70,6 @@ void Task1121()
 
 }
 
-/// <summary>
-/// Функция, которая выполняет задачу для задания 1.1.2.2.
-/// </summary>
 void Task1122()
 {
 	double searchingValue;
@@ -108,9 +96,6 @@ void Task1122()
 	cout << "\nElements of array more than " << searchingValue << " is: " << countValues << "\n";
 }
 
-/// <summary>
-/// Функция, которая выполняет задачу для задания 1.1.2.3.
-/// </summary>
 void Task1123()
 {
 	const int n = 8;
@@ -161,9 +146,6 @@ void Task1131()
 	cout << "{\n	return pow(base, exponent);\n}\n";
 }
 
-/// <summary>
-/// Функция, которая выполняет задачу для задания 1.1.3.2.
-/// </summary>
 void Task1132()
 {
 	cout << "2.0 ^ 5 = " << GetPower(2.0, 5) << endl;
@@ -181,9 +163,6 @@ void DemoGetPower(double base, int exponent)
 	cout << base << " ^ " << exponent << " = " << GetPower(base, exponent) << endl;
 }
 
-/// <summary>
-/// Функция, которая выполняет задачу для задания 1.1.3.3.
-/// </summary>
 void Task1133()
 {
 	DemoGetPower(2.0, 5);
@@ -207,9 +186,6 @@ void RoundToTens(int& value)
 	}
 }
 
-/// <summary>
-/// Функция, которая выполняет задачу для задания 1.1.3.4.
-/// </summary>
 void Task1134()
 {
 	int a = 14;
@@ -228,9 +204,6 @@ void Task1134()
 	cout << a << "\n";
 }
 
-/// <summary>
-/// Функция, которая выполняет задачу для задания 1.1.4.1.
-/// </summary>
 void Task1141()
 {
 	int a = 5;
@@ -276,6 +249,10 @@ void Task1143()
 	cout << "Value of a: " << a << endl;
 }
 
+/// <summary>
+/// Функция для задачи 1.1.4.4.
+/// </summary>
+/// <param name="a"></param>
 void Foo(double a)
 {
 	cout << "Address of a in Foo(): " << &a << endl;
@@ -298,6 +275,10 @@ void Task1144()
 	cout << "Value of a in main(): " << a << endl;
 }
 
+/// <summary>
+/// Функция для задачи 1.1.4.5.
+/// </summary>
+/// <param name="a"></param>
 void Foo2(double& a)
 {
 	cout << "Address of a in Foo(): " << &a << endl;
@@ -339,6 +320,10 @@ void Task1147()
 	cout << "int* p - объявление указателя.\n*p - разыменование.\na * b - умножение.\n";
 }
 
+/// <summary>
+/// Функция для задания 1.1.4.8.
+/// </summary>
+/// <param name="a"></param>
 void Foo3(double* a)
 {
 	cout << "Address in pointer: " << a << endl;
@@ -414,6 +399,11 @@ void Task1153()
 	cout << endl;
 }
 
+/// <summary>
+/// Сортирует входящий массив вещественных чисел.
+/// </summary>
+/// <param name="mas">ВХодящий массив вещественных чисел.</param>
+/// <param name="n">Размер входящего массива.</param>
 void SortArrayDouble(double* mas, int n)
 {
 	for (int i = 0; i < n; i++)
@@ -451,15 +441,27 @@ void Task1154()
 	cout << endl;
 }
 
+/// <summary>
+/// Находит индекс искомого элемента массива.
+/// </summary>
+/// <param name="mas">Массив, в котором происходит поиск.</param>
+/// <param name="n">Рзмер массива.</param>
+/// <param name="searchingValue">Искомое значение среди элементов массива.</param>
 void SearchIndex(int* mas, int n, int searchingValue)
 {
+	bool isHaveAnswer = false;
 	for (int i = 0; i < n; i++)
 	{
 		if (mas[i] == searchingValue)
 		{
 			cout << i;
+			isHaveAnswer = true;
 			break;
 		}
+	}
+	if (not isHaveAnswer)
+	{
+		cout << "Not found";
 	}
 }
 
@@ -482,6 +484,11 @@ void Task1155()
 	cout << endl;
 }
 
+/// <summary>
+/// Выводит на экран все латинские буквы из входного массива и их количество.
+/// </summary>
+/// <param name="mas">Массив, в котором ищутся латинские буквы.</param>
+/// <param name="n">Размер массива.</param>
 void FindLetterInArrayChar(char* mas, int n)
 {
 	int count = 0;
@@ -509,6 +516,11 @@ void Task1156()
 	FindLetterInArrayChar(mas, n);
 }
 
+/// <summary>
+/// Создаёт массив со случайными значениями заданного размера.
+/// </summary>
+/// <param name="arraySize">Размер массива.</param>
+/// <returns>Массив заданного размера со случайными размерами.</returns>
 int* MakeRandomArray(int arraySize)
 {
 	int* mas = new int[arraySize];
@@ -519,6 +531,11 @@ int* MakeRandomArray(int arraySize)
 	return mas;
 }
 
+/// <summary>
+/// Функция для вывода массива на экран.
+/// </summary>
+/// <param name="mas">Массив.</param>
+/// <param name="n">Размер массива.</param>
 void WriteArray(int* mas, int n)
 {
 	for (int i = 0; i < n; i++)
@@ -539,6 +556,9 @@ void Task1157()
 	WriteArray(array1, lengthArray1);
 	WriteArray(array2, lengthArray2);
 	WriteArray(array3, lengthArray3);
+	delete[] array1;
+	delete[] array2;
+	delete[] array3;
 }
 
 int* ReadArray(int count)
@@ -582,7 +602,6 @@ void Task1158()
 /// <summary>
 /// Основная функция программы, позволяет пользователю взаимодействовать с программой.
 /// </summary>
-/// <returns></returns>
 int main()
 {
 	setlocale(LC_ALL, "Russian");

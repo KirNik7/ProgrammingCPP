@@ -42,13 +42,13 @@ void Task1121()
 {
 	const int n = 10;
 	// TODO:
-	int mas[n];
+	int array[n];
 
 	cout << "Source array is:\n";
 	for (int i = 0; i < n; i++)
 	{
-		mas[i] = rand() % 50 - 10;
-		cout << mas[i] << " ";
+		array[i] = rand() % 50 - 10;
+		cout << array[i] << " ";
 	}
 
 	cout << "\nSorted array is:\n";
@@ -56,16 +56,16 @@ void Task1121()
 	{
 		for (int j = 0; j < n; j++)
 		{
-			if (mas[j] > mas[i])
+			if (array[j] > array[i])
 			{
-				swap(mas[j], mas[i]);
+				swap(array[j], array[i]);
 			}
 		}
 	}
 
 	for (int i = 0; i < n; i++)
 	{
-		cout << mas[i] << " ";
+		cout << array[i] << " ";
 	}
 	cout << "\n";
 
@@ -76,21 +76,21 @@ void Task1122()
 	double searchingValue;
 	int countValues = 0;
 	const int n = 12;
-	double mas[n];
+	double array[n];
 
 	cout << "Source array is:\n";
 	for (int i = 0; i < n; i++)
 	{
 		// TODO:
-		mas[i] = floor((double)rand() / (double)RAND_MAX * (1000 - -1000) + -1000) / 10;
-		cout << mas[i] << " ";
+		array[i] = floor(rand()) / 100;
+		cout << array[i] << " ";
 	}
 	
 	cout << "\n\nEnter searching value: ";
 	cin >> searchingValue;
 	for (int i = 0; i < n; i++)
 	{
-		if (mas[i] >= searchingValue)
+		if (array[i] >= searchingValue)
 		{
 			countValues++;
 		}
@@ -101,30 +101,30 @@ void Task1122()
 void Task1123()
 {
 	const int n = 8;
-	char mas[n];
+	char array[n];
 
 	cout << "Enter array of 8 chars\n";
 
 	for (int i = 0; i < n; i++)
 	{
 		cout << "\na[" << i << "]:";
-		cin >> mas[i];
+		cin >> array[i];
 	}
 
 	cout << "\nYour array is:\n";
 
 	for (int i = 0; i < n; i++)
 	{
-		cout << mas[i] << " ";
+		cout << array[i] << " ";
 	}
 
 	cout << "\n\nAll letters in your array:\n";
 
 	for (int i = 0; i < n; i++)
 	{
-		if (mas[i] >= 'a' && mas[i] <= 'z')
+		if (array[i] >= 'a' && array[i] <= 'z')
 		{
-			cout << mas[i] << " ";
+			cout << array[i] << " ";
 		}
 	}
 	cout << "\n";
@@ -354,28 +354,28 @@ void Task1148()
 void Task1151()
 {
 	const int n = 8;
-	double* mas = new double[n] {1.0, 15.0, -8.2, -3.5, 12.6, 38.4, -0.5, 4.5};
+	double* array = new double[n] {1.0, 15.0, -8.2, -3.5, 12.6, 38.4, -0.5, 4.5};
 
 	cout << "Array of double:" << endl;
 	for (int i = 0; i < n; i++)
 	{
-		cout << mas[i] << " ";
+		cout << array[i] << " ";
 	}
-	delete[] mas;
+	delete[] array;
 	cout << endl;
 }
 
 void Task1152()
 {
 	const int n = 8;
-	bool* mas = new bool[n] {true, false, true, true, false, true, false, false};
+	bool* array = new bool[n] {true, false, true, true, false, true, false, false};
 
 	cout << "Array of double:" << endl;
 	for (int i = 0; i < n; i++)
 	{
-		cout << mas[i] << " ";
+		cout << array[i] << " ";
 	}
-	delete[] mas;
+	delete[] array;
 	cout << endl;
 }
 
@@ -385,36 +385,36 @@ void Task1153()
 	cout << "Enter char array size: ";
 	cin >> n;
 	cout << endl;
-	char* mas = new char[n];
+	char* array = new char[n];
 	for (int i = 0; i < n; i++)
 	{
 		cout << "Enter a[" << i << "]: ";
-		cin >> mas[i];
+		cin >> array[i];
 	}
 
 	cout << "\nYour char array is:" << endl;
 	for (int i = 0; i < n; i++)
 	{
-		cout << mas[i] << " ";
+		cout << array[i] << " ";
 	}
-	delete[] mas;
+	delete[] array;
 	cout << endl;
 }
 
 /// <summary>
 /// Сортирует входящий массив вещественных чисел.
 /// </summary>
-/// <param name="mas">ВХодящий массив вещественных чисел.</param>
+/// <param name="array">ВХодящий массив вещественных чисел.</param>
 /// <param name="n">Размер входящего массива.</param>
-void SortArrayDouble(double* mas, int n)
+void SortArrayDouble(double* array, int n)
 {
 	for (int i = 0; i < n; i++)
 	{
 		for (int j = 0; j < n; j++)
 		{
-			if (mas[j] > mas[i])
+			if (array[j] > array[i])
 			{
-				swap(mas[j], mas[i]);
+				swap(array[j], array[i]);
 			}
 		}
 	}
@@ -423,39 +423,39 @@ void SortArrayDouble(double* mas, int n)
 void Task1154()
 {
 	const int n = 10;
-	double* mas = new double[n];
+	double* array = new double[n];
 
 	cout << "Array of double:\n";
 	for (int i = 0; i < n; i++)
 	{
 		// TODO:
-		mas[i] = floor((double)rand() / (double)RAND_MAX * (1000 - -1000) + -1000) / 10;
-		cout << mas[i] << " ";
+		array[i] = floor(rand()) / 100;
+		cout << array[i] << " ";
 	}
 
 	cout << "\nSorted array of double:\n";
-	SortArrayDouble(mas, n);
+	SortArrayDouble(array, n);
 	for (int i = 0; i < n; i++)
 	{
-		cout << mas[i] << " ";
+		cout << array[i] << " ";
 	}
 
-	delete[] mas;
+	delete[] array;
 	cout << endl;
 }
 
 /// <summary>
 /// Находит индекс искомого элемента массива.
 /// </summary>
-/// <param name="mas">Массив, в котором происходит поиск.</param>
+/// <param name="array">Массив, в котором происходит поиск.</param>
 /// <param name="n">Рзмер массива.</param>
 /// <param name="searchingValue">Искомое значение среди элементов массива.</param>
-void SearchIndex(int* mas, int n, int searchingValue)
+void SearchIndex(int* array, int n, int searchingValue)
 {
 	bool isHaveAnswer = false;
 	for (int i = 0; i < n; i++)
 	{
-		if (mas[i] == searchingValue)
+		if (array[i] == searchingValue)
 		{
 			cout << i;
 			isHaveAnswer = true;
@@ -471,35 +471,35 @@ void SearchIndex(int* mas, int n, int searchingValue)
 void Task1155()
 {
 	const int n = 10;
-	int* mas = new int[n];
+	int* array = new int[n];
 	int searchingValue;
 
 	cout << "Int array:\n";
 	for (int i = 0; i < n; i++)
 	{
-		mas[i] = rand() % 50 - 10;
-		cout << mas[i] << " ";
+		array[i] = rand() % 50 - 10;
+		cout << array[i] << " ";
 	}
 	cout << "\n\nEnter searching value: ";
 	cin >> searchingValue;
 	cout << "Index of searching value " << searchingValue << " is: ";
-	SearchIndex(mas, n, searchingValue);
+	SearchIndex(array, n, searchingValue);
 	cout << endl;
 }
 
 /// <summary>
 /// Выводит на экран все латинские буквы из входного массива и их количество.
 /// </summary>
-/// <param name="mas">Массив, в котором ищутся латинские буквы.</param>
+/// <param name="array">Массив, в котором ищутся латинские буквы.</param>
 /// <param name="n">Размер массива.</param>
-void FindLetterInArrayChar(char* mas, int n)
+void FindLetterInArrayChar(char* array, int n)
 {
 	int count = 0;
 	for (int i = 0; i < n; i++)
 	{
-		if (mas[i] >= 'a' && mas[i] <= 'z')
+		if (array[i] >= 'a' && array[i] <= 'z')
 		{
-			cout << mas[i] << " ";
+			cout << array[i] << " ";
 			count++;
 		}
 	}
@@ -509,14 +509,14 @@ void FindLetterInArrayChar(char* mas, int n)
 void Task1156()
 {
 	const int n = 15;
-	char* mas = new char[n] {'a', '5', 'm', 'i', '%', '!', 's', 'p', '*', '9', 'f', '^', ';', 'q', 'k'};
+	char* array = new char[n] {'a', '5', 'm', 'i', '%', '!', 's', 'p', '*', '9', 'f', '^', ';', 'q', 'k'};
 	cout << "Char array is:\n";
 	for (int i = 0; i < n; i++)
 	{
-		cout << mas[i] << " ";
+		cout << array[i] << " ";
 	}
 	cout << "\n\nLetters in array:\n";
-	FindLetterInArrayChar(mas, n);
+	FindLetterInArrayChar(array, n);
 }
 
 /// <summary>
@@ -526,24 +526,24 @@ void Task1156()
 /// <returns>Массив заданного размера со случайными размерами.</returns>
 int* MakeRandomArray(int arraySize)
 {
-	int* mas = new int[arraySize];
+	int* array = new int[arraySize];
 	for (int i = 0; i < arraySize; i++)
 	{
-		mas[i] = 0 + rand() % (100 - 0 + 1);
+		array[i] = 0 + rand() % (100 - 0 + 1);
 	}
-	return mas;
+	return array;
 }
 
 /// <summary>
 /// Функция для вывода массива на экран.
 /// </summary>
-/// <param name="mas">Массив.</param>
+/// <param name="array">Массив.</param>
 /// <param name="n">Размер массива.</param>
-void WriteArray(int* mas, int n)
+void WriteArray(int* array, int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-		cout << mas[i] << " ";
+		cout << array[i] << " ";
 	}
 	cout << endl;
 }
@@ -587,23 +587,22 @@ int CountPositiveValues(int* values, int count)
 	return result;
 }
 
-void Task1158()
+void RepeatForTask1158(int count)
 {
-
-	// TODO:
-	int count = 15;
 	int* values = ReadArray(count);
 	cout << "Count is: " << CountPositiveValues(values, count) << endl;
-	
 	delete[] values;
+}
+
+void Task1158()
+{
+	// TODO:
+	int count = 15;
+	RepeatForTask1158(count);
 	
 	// TODO:
-
 	count = 20;
-	values = ReadArray(count);
-	cout << "Count is: " << CountPositiveValues(values, count) << endl;
-
-	delete[] values;
+	RepeatForTask1158(count);
 }
 
 /// <summary>
@@ -637,112 +636,111 @@ int main()
 		cin >> choice;
 		switch (choice)
 		{// TODO:
-
 			case 0:
 				return 0;
-		case 1:
-			cout << "\nTask 1.1.1.1:\n" << endl;
-			Task1111();
-			break;
-		case 2:
-			cout << "\nTask 1.1.1.2:\n" << endl;
-			Task1112();
-			break;
-		case 3:
-			cout << "\nTask 1.1.2.1:\n" << endl;
-			Task1121();
-			break;
-		case 4:
-			cout << "\nTask 1.1.2.2:\n" << endl;
-			Task1122();
-			break;
-		case 5:
-			cout << "\nTask 1.1.2.3:\n" << endl;
-			Task1123();
-			break;
-		case 6:
-			cout << "\nTask 1.1.3.1:\n" << endl;
-			Task1131();
-			break;
-		case 7:
-			cout << "\nTask 1.1.3.2:\n" << endl;
-			Task1132();
-			break;
-		case 8:
-			cout << "\nTask 1.1.3.3:\n" << endl;
-			Task1133();
-			break;
-		case 9:
-			cout << "\nTask 1.1.3.4:\n" << endl;
-			Task1134();
-			break;
-		case 10:
-			cout << "\nTask 1.1.4.1:\n" << endl;
-			Task1141();
-			break;
-		case 11:
-			cout << "\nTask 1.1.4.2:\n" << endl;
-			Task1142();
-			break;
-		case 12:
-			cout << "\nTask 1.1.4.3:\n" << endl;
-			Task1143();
-			break;
-		case 13:
-			cout << "\nTask 1.1.4.4:\n" << endl;
-			Task1144();
-			break;
-		case 14:
-			cout << "\nTask 1.1.4.5:\n" << endl;
-			Task1145();
-			break;
-		case 15:
-			cout << "\nTask 1.1.4.6:\n" << endl;
-			Task1146();
-			break;
-		case 16:
-			cout << "\nTask 1.1.4.7:\n" << endl;
-			Task1147();
-			break;
-		case 17:
-			cout << "\nTask 1.1.4.8:\n" << endl;
-			Task1148();
-			break;
-		case 18:
-			cout << "\nTask 1.1.5.1:\n" << endl;
-			Task1151();
-			break;
-		case 19:
-			cout << "\nTask 1.1.5.2:\n" << endl;
-			Task1152();
-			break;
-		case 20:
-			cout << "\nTask 1.1.5.3:\n" << endl;
-			Task1153();
-			break;
-		case 21:
-			cout << "\nTask 1.1.5.4:\n" << endl;
-			Task1154();
-			break;
-		case 22:
-			cout << "\nTask 1.1.5.5:\n" << endl;
-			Task1155();
-			break;
-		case 23:
-			cout << "\nTask 1.1.5.6:\n" << endl;
-			Task1156();
-			break;
-		case 24:
-			cout << "\nTask 1.1.5.7:\n" << endl;
-			Task1157();
-			break;
-		case 25:
-			cout << "\nTask 1.1.5.8:\n" << endl;
-			Task1158();
-			_CrtDumpMemoryLeaks();
-			break;
-		default:
-			cout << "\nIncorrect input\n" << endl;
+			case 1:
+				cout << "\nTask 1.1.1.1:\n" << endl;
+				Task1111();
+				break;
+			case 2:
+				cout << "\nTask 1.1.1.2:\n" << endl;
+				Task1112();
+				break;
+			case 3:
+				cout << "\nTask 1.1.2.1:\n" << endl;
+				Task1121();
+				break;
+			case 4:
+				cout << "\nTask 1.1.2.2:\n" << endl;
+				Task1122();
+				break;
+			case 5:
+				cout << "\nTask 1.1.2.3:\n" << endl;
+				Task1123();
+				break;
+			case 6:
+				cout << "\nTask 1.1.3.1:\n" << endl;
+				Task1131();
+				break;
+			case 7:
+				cout << "\nTask 1.1.3.2:\n" << endl;
+				Task1132();
+				break;
+			case 8:
+				cout << "\nTask 1.1.3.3:\n" << endl;
+				Task1133();
+				break;
+			case 9:
+				cout << "\nTask 1.1.3.4:\n" << endl;
+				Task1134();
+				break;
+			case 10:
+				cout << "\nTask 1.1.4.1:\n" << endl;
+				Task1141();
+				break;
+			case 11:
+				cout << "\nTask 1.1.4.2:\n" << endl;
+				Task1142();
+				break;
+			case 12:
+				cout << "\nTask 1.1.4.3:\n" << endl;
+				Task1143();
+				break;
+			case 13:
+				cout << "\nTask 1.1.4.4:\n" << endl;
+				Task1144();
+				break;
+			case 14:
+				cout << "\nTask 1.1.4.5:\n" << endl;
+				Task1145();
+				break;
+			case 15:
+				cout << "\nTask 1.1.4.6:\n" << endl;
+				Task1146();
+				break;
+			case 16:
+				cout << "\nTask 1.1.4.7:\n" << endl;
+				Task1147();
+				break;
+			case 17:
+				cout << "\nTask 1.1.4.8:\n" << endl;
+				Task1148();
+				break;
+			case 18:
+				cout << "\nTask 1.1.5.1:\n" << endl;
+				Task1151();
+				break;
+			case 19:
+				cout << "\nTask 1.1.5.2:\n" << endl;
+				Task1152();
+				break;
+			case 20:
+				cout << "\nTask 1.1.5.3:\n" << endl;
+				Task1153();
+				break;
+			case 21:
+				cout << "\nTask 1.1.5.4:\n" << endl;
+				Task1154();
+				break;
+			case 22:
+				cout << "\nTask 1.1.5.5:\n" << endl;
+				Task1155();
+				break;
+			case 23:
+				cout << "\nTask 1.1.5.6:\n" << endl;
+				Task1156();
+				break;
+			case 24:
+				cout << "\nTask 1.1.5.7:\n" << endl;
+				Task1157();
+				break;
+			case 25:
+				cout << "\nTask 1.1.5.8:\n" << endl;
+				Task1158();
+				_CrtDumpMemoryLeaks();
+				break;
+			default:
+				cout << "\nIncorrect input\n" << endl;
 		}
 		cout << "\n";
 	}

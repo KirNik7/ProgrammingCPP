@@ -41,6 +41,7 @@ void Task1112()
 void Task1121()
 {
 	const int n = 10;
+	// TODO:
 	int mas[n];
 
 	cout << "Source array is:\n";
@@ -80,6 +81,7 @@ void Task1122()
 	cout << "Source array is:\n";
 	for (int i = 0; i < n; i++)
 	{
+		// TODO:
 		mas[i] = floor((double)rand() / (double)RAND_MAX * (1000 - -1000) + -1000) / 10;
 		cout << mas[i] << " ";
 	}
@@ -426,6 +428,7 @@ void Task1154()
 	cout << "Array of double:\n";
 	for (int i = 0; i < n; i++)
 	{
+		// TODO:
 		mas[i] = floor((double)rand() / (double)RAND_MAX * (1000 - -1000) + -1000) / 10;
 		cout << mas[i] << " ";
 	}
@@ -586,11 +589,15 @@ int CountPositiveValues(int* values, int count)
 
 void Task1158()
 {
+
+	// TODO:
 	int count = 15;
 	int* values = ReadArray(count);
 	cout << "Count is: " << CountPositiveValues(values, count) << endl;
 	
 	delete[] values;
+	
+	// TODO:
 
 	count = 20;
 	values = ReadArray(count);
@@ -629,9 +636,10 @@ int main()
 
 		cin >> choice;
 		switch (choice)
-		{
-		case 0:
-			return 0;
+		{// TODO:
+
+			case 0:
+				return 0;
 		case 1:
 			cout << "\nTask 1.1.1.1:\n" << endl;
 			Task1111();

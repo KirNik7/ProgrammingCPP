@@ -1,76 +1,319 @@
 ﻿#include <iostream>
+#include "DynamicArray.h"
 
 using namespace std;
+
+bool ArrayIsSorted = false;
+bool ArrayIsCreated = false;
+
+
+void InputValue(int* value)
+{
+	cout << ": ";
+	cin >> *value;
+	cin.clear();
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+
+void CreateArrayFromMenu(DynamicArray* dynamicArray)
+{
+	if (ArrayIsCreated == false)
+	{
+		CreateArray(dynamicArray);
+		ArrayIsCreated = true;
+	}
+	else
+	{
+		cout << "Массив уже создан" << endl;
+		return;
+	}
+
+	int flag = true;
+	int count;
+	cout << "Введите количество элементов массива" << endl;
+
+	while (flag)
+	{
+		InputValue(&count);
+
+		if (count <= 0)
+		{
+			cout << "Количество элементов в массиве должно быть больше 0"
+				<< " Попробуйте снова" << endl;
+			continue;
+		}
+
+		flag = false;
+	}
+
+	flag = true;
+	cout << "Выберите:" << endl;
+	cout << "1. Создать массив со случайными значениями" << endl;
+	cout << "2. Создать массив со своими значениями" << endl;
+	while (flag)
+	{
+		int key;
+
+		InputValue(&key);
+
+		switch (key)
+		{
+		case 1:
+			GetArrayRandom(dynamicArray, count);
+			flag = false;
+			break;
+		case 2:
+			GetArrayHandmade(dynamicArray, count);
+			flag = false;
+			break;
+		default:
+			cout << "Введено неверное значение. Попробуйте снова";
+			break;
+		}
+
+		cout << endl;
+	}
+}
+
+void AddElementFromMenu(DynamicArray* dynamicArray)
+{
+	if (ArrayIsCreated == false)
+	{
+		cout << "Массив не создан" << endl;
+		return;
+	}
+
+	int value;
+	int index;
+	cout << "Введите число" << endl;
+	InputValue(&value);
+
+	AddElement(dynamicArray, value);
+	ArrayIsSorted = false;
+}
+
+void ShowArrayFromMenu(DynamicArray* dynamicArray)
+{
+	if (ArrayIsCreated == false)
+	{
+		cout << "Массив не создан" << endl;
+		return;
+	}
+
+	ShowArray(dynamicArray);
+}
+
+void RemoveElementFromMenu(DynamicArray* dynamicArray)
+{
+	if (ArrayIsCreated == false)
+	{
+		cout << "Массив не создан" << endl;
+		return;
+	}
+
+	int index;
+
+	while (true)
+	{
+		cout << "Введите индекс" << endl;
+		InputValue(&index);
+
+		if (index < 0)
+		{
+			cout << "Индекс должен быть больше или равен нулю" << endl;
+			continue;
+		}
+		if (index >= dynamicArray->Length)
+		{
+			cout << "Индекс должен быть меньше длины массива" << endl;
+			continue;
+		}
+
+		break;
+	}
+
+	RemoveElement(dynamicArray, index);
+
+	if (dynamicArray->Length == 0)
+	{
+		ArrayIsCreated = false;
+	}
+}
+
+void InsertELementFromMenu(DynamicArray* dynamicArray)
+{
+	if (ArrayIsCreated == false)
+	{
+		cout << "Массив не создан" << endl;
+		return;
+	}
+
+	int value;
+	int index;
+	int flag = true;
+	cout << "Введите число" << endl;
+	InputValue(&value);
+
+	cout << "Выберите:" << endl;
+	cout << "1. Вставить в начало" << endl;
+	cout << "2. Вставить после определенного элемента" << endl;
+	cout << "3. Вставить в конец" << endl;
+	while (flag)
+	{
+		int key;
+
+		InputValue(&key);
+
+		switch (key)
+		{
+		case 1:
+			index = 0;
+			InsertElement(dynamicArray, value, index);
+			ArrayIsSorted = false;
+			flag = false;
+			break;
+		case 2:
+			cout << "Введите индекс" << endl;
+			InputValue(&index);
+			index++;
+
+			if (index < 0)
+			{
+				cout << "Индекс должен быть больше или равен нулю" << endl;
+				break;
+			}
+
+			if (index > dynamicArray->Length)
+			{
+				cout << "Нельзя добавить элемент на это место" << endl;
+				break;
+			}
+
+			InsertElement(dynamicArray, value, index);
+			ArrayIsSorted = false;
+			flag = false;
+			break;
+		case 3:
+			index = dynamicArray->Length;
+			InsertElement(dynamicArray, value, index);
+			ArrayIsSorted = false;
+			flag = false;
+			break;
+		default:
+			cout << "Введено неверное значение. Попробуйте снова";
+			break;
+		}
+
+		cout << endl;
+	}
+}
+
+void SortArrayFromMenu(DynamicArray* dynamicArray)
+{
+	if (ArrayIsCreated == false)
+	{
+		cout << "Массив не создан" << endl;
+		return;
+	}
+
+	SortArray(dynamicArray);
+	ArrayIsSorted = true;
+}
+
+void LinearSearchFromMenu(DynamicArray* dynamicArray)
+{
+	if (ArrayIsCreated == false)
+	{
+		cout << "Массив не создан" << endl;
+		return;
+	}
+
+	int value;
+	cout << "Введите число" << endl;
+	InputValue(&value);
+	LinearSearch(dynamicArray, value);
+}
+
+void BinarySearchFromMenu(DynamicArray* dynamicArray)
+{
+	if (ArrayIsCreated == false)
+	{
+		cout << "Массив не создан" << endl;
+		return;
+	}
+	if (ArrayIsSorted == false)
+	{
+		cout << "Массив не отсортирован" << endl;
+		return;
+	}
+
+	int value;
+	cout << "Введите число" << endl;
+	InputValue(&value);
+	BinarySearch(dynamicArray, value);
+}
 
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	srand(time(0));
+	DynamicArray* dynamicArray = new DynamicArray;
 
-	int choice;
+	bool flag = true;
 
-	while (true)
+	cout << "\tДобро пожаловать!" << endl;
+	cout << "Выберите функцию из списка ниже" << endl;
+
+	while (flag)
 	{
-		cout << " 1) 1.1.1.1   2) 1.1.1.2\n";
-		cout << " 3) 1.1.2.1   4) 1.1.2.2\n";
-		cout << " 5) 1.1.2.3   6) 1.1.3.1\n";
-		cout << " 7) 1.1.3.2   8) 1.1.3.3\n";
-		cout << " 9) 1.1.3.4  10) 1.1.4.1\n";
-		cout << "11) 1.1.4.2  12) 1.1.4.3\n";
-		cout << "13) 1.1.4.4  14) 1.1.4.5\n";
-		cout << "15) 1.1.4.6  16) 1.1.4.7\n";
-		cout << "17) 1.1.4.8  18) 1.1.5.1\n";
-		cout << "19) 1.1.5.2  20) 1.1.5.3\n";
-		cout << "21) 1.1.5.4  22) 1.1.5.5\n";
-		cout << "23) 1.1.5.6  24) 1.1.5.7\n";
-		cout << "25) 1.1.5.8\n";
+		cout << "1. Создать массив" << endl;;
+		cout << "2. Добавить элемент в массив" << endl;
+		cout << "3. Удалить элемент" << endl;
+		cout << "4. Вставить элемент" << endl;
+		cout << "5. Показать массив" << endl;
+		cout << "6. Отсортировать массив" << endl;
+		cout << "7. Линейный поиск" << endl;
+		cout << "8. Бинарный поиск" << endl;
+		cout << "9. Выйти" << endl;
 
-		cout << "\nChoice task (\"0\" for exit): ";
+		int key;
 
-		cin >> choice;
-		switch (choice)
+		InputValue(&key);
+
+		switch (key)
 		{
-			case 0:
-				return 0;
-			case 1:
-				cout << "\nTask 1.1.1.1:\n" << endl;
-				
-				break;
-			case 2:
-				cout << "\nTask 1.1.1.2:\n" << endl;
-				
-				break;
-			case 3:
-				cout << "\nTask 1.1.2.1:\n" << endl;
-				
-				break;
-			case 4:
-				cout << "\nTask 1.1.2.2:\n" << endl;
-				
-				break;
-			case 5:
-				cout << "\nTask 1.1.2.3:\n" << endl;
-				
-				break;
-			case 6:
-				cout << "\nTask 1.1.3.1:\n" << endl;
-				
-				break;
-			case 7:
-				cout << "\nTask 1.1.3.2:\n" << endl;
-				
-				break;
-			case 8:
-				cout << "\nTask 1.1.3.3:\n" << endl;
-				
-				break;
-			case 9:
-				cout << "\nTask 1.1.3.4:\n" << endl;
-				
-				break;
-			default:
-				cout << "\nIncorrect input\n" << endl;
+		case 1:
+			CreateArrayFromMenu(dynamicArray);
+			break;
+		case 2:
+			AddElementFromMenu(dynamicArray);
+			break;
+		case 3:
+			RemoveElementFromMenu(dynamicArray);
+			break;
+		case 4:
+			InsertELementFromMenu(dynamicArray);
+			break;
+		case 5:
+			ShowArrayFromMenu(dynamicArray);
+			break;
+		case 6:
+			SortArrayFromMenu(dynamicArray);
+			break;
+		case 7:
+			LinearSearchFromMenu(dynamicArray);
+			break;
+		case 8:
+			BinarySearchFromMenu(dynamicArray);
+			break;
+		case 9:
+			flag = false;
+			break;
+		default:
+			cout << "Введено неверное значение. Попробуйте снова" << endl;
+			break;
 		}
-		cout << "\n";
 	}
+
+	delete[] dynamicArray->Array;
+	delete dynamicArray;
 }

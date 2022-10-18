@@ -48,28 +48,26 @@ void CreateArrayInMenu(DynamicArray* dynamicArray)
 	cout << "\nВыберите:" << endl;
 	cout << "1. Массив со случайными значениями" << endl;
 	cout << "2. Ввести свои значения для элементов массива" << endl;
+
 	while (flag)
 	{
 		int key;
-
 		InputValueInMenu(&key);
 
 		switch (key)
 		{
-		case 1:
-			GetRandomArray(dynamicArray, count);
-			flag = false;
-			break;
-		case 2:
-			GetArrayHandmade(dynamicArray, count);
-			flag = false;
-			break;
-		default:
-			cout << "Введено неверное значение. Попробуйте снова";
-			break;
+			case 1:
+				GetRandomArray(dynamicArray, count);
+				flag = false;
+				break;
+			case 2:
+				GetArrayByUser(dynamicArray, count);
+				flag = false;
+				break;
+			default:
+				cout << "Введено неверное значение. Попробуйте снова";
+				break;
 		}
-
-		cout << endl;
 	}
 }
 
@@ -83,9 +81,8 @@ void AddElementInMenu(DynamicArray* dynamicArray)
 
 	int value;
 	int index;
-	cout << "Введите число" << endl;
+	cout << "Значение нового элемента = ";
 	InputValueInMenu(&value);
-
 	AddElement(dynamicArray, value);
 	ArrayIsSorted = false;
 }
@@ -113,17 +110,17 @@ void RemoveElementInMenu(DynamicArray* dynamicArray)
 
 	while (true)
 	{
-		cout << "Введите индекс" << endl;
+		cout << "Индекс элемента, который нужно удалить = ";
 		InputValueInMenu(&index);
 
 		if (index < 0)
 		{
-			cout << "Индекс должен быть больше или равен нулю" << endl;
+			cout << "Индекс должен быть больше или равен нулю." << endl;
 			continue;
 		}
 		if (index >= dynamicArray->Length)
 		{
-			cout << "Индекс должен быть меньше длины массива" << endl;
+			cout << "Индекс должен быть меньше длины массива." << endl;
 			continue;
 		}
 
@@ -150,7 +147,7 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 	int index;
 	int flag = true;
 
-	cout << "Введите число: ";
+	cout << "Значение нового элемента = ";
 	InputValueInMenu(&value);
 
 	cout << "Вставить элемент:" << endl;
@@ -172,7 +169,7 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 			flag = false;
 			break;
 		case 2:
-			cout << "Введите индекс: ";
+			cout << "Индекс массива, после которого нужно расположить новый элемент = ";
 			InputValueInMenu(&index);
 			index++;
 
@@ -202,8 +199,6 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 			cout << "Неверное значение.";
 			break;
 		}
-
-		cout << endl;
 	}
 }
 
@@ -228,7 +223,7 @@ void LinearSearchInMenu(DynamicArray* dynamicArray)
 	}
 
 	int value;
-	cout << "Введите число" << endl;
+	cout << "Значение элемента, который нужно найти = ";
 	InputValueInMenu(&value);
 	LinearSearch(dynamicArray, value);
 }
@@ -247,7 +242,7 @@ void BinarySearchInMenu(DynamicArray* dynamicArray)
 	}
 
 	int value;
-	cout << "Введите число" << endl;
+	cout << "Значение элемента, который нужно найти = ";
 	InputValueInMenu(&value);
 	BinarySearch(dynamicArray, value);
 }

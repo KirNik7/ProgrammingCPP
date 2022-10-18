@@ -15,7 +15,6 @@ void CreateArray(DynamicArray* dynamicArray)
 void ResizeArray(DynamicArray* dynamicArray)
 {
 	dynamicArray->Capacity += 10;
-
 	int* tempArray = new int[dynamicArray->Capacity];
 
 	for (int i = 0; i < dynamicArray->Length - 1; i++)
@@ -47,10 +46,10 @@ void ShowArray(DynamicArray* dynamicArray)
 		cout << dynamicArray->Array[i] << " ";
 	}
 
-	cout << "\n" << endl;
+	cout << endl;
 }
 
-void GetArrayHandmade(DynamicArray* dynamicArray, int length)
+void GetArrayByUser(DynamicArray* dynamicArray, int length)
 {
 	int value;
 	for (int i = 0; i < length; i++)
@@ -92,9 +91,12 @@ void InsertElement(DynamicArray* dynamicArray, int value, int index)
 
 void SortArray(DynamicArray* dynamicArray)
 {
-	for (int i = 0; i < dynamicArray->Length; i++) {
-		for (int j = 0; j < dynamicArray->Length - 1; j++) {
-			if (dynamicArray->Array[j] > dynamicArray->Array[j + 1]) {
+	for (int i = 0; i < dynamicArray->Length; i++)
+	{
+		for (int j = 0; j < dynamicArray->Length - 1; j++)
+		{
+			if (dynamicArray->Array[j] > dynamicArray->Array[j + 1])
+			{
 				int temp = dynamicArray->Array[j];
 				dynamicArray->Array[j] = dynamicArray->Array[j + 1];
 				dynamicArray->Array[j + 1] = temp;
@@ -105,19 +107,19 @@ void SortArray(DynamicArray* dynamicArray)
 
 void LinearSearch(DynamicArray* dynamicArray, int value)
 {
-	bool flag = false;
+	bool isFind = false;
 
 	for (int i = 0; i < dynamicArray->Length; i++)
 	{
 		if (dynamicArray->Array[i] == value)
 		{
 			cout << "Ёлемент " << value << " найден по индексу " << i << endl;
-			flag = true;
+			isFind = true;
 			return;
 		}
 	}
 
-	if (flag == false)
+	if (isFind == false)
 	{
 		cout << "Ёлемент не найден" << endl;
 	}
@@ -128,15 +130,15 @@ void BinarySearch(DynamicArray* dynamicArray, int value)
 	int left = 0;
 	int right = dynamicArray->Length;
 	int middle;
-	bool flag = false;
+	bool isFind = false;
 
-	while ((left <= right) && (flag != true))
+	while ((left <= right) && (isFind != true))
 	{
 		middle = (left + right) / 2;
 
 		if (dynamicArray->Array[middle] == value)
 		{
-			flag = true;
+			isFind = true;
 		}
 		if (dynamicArray->Array[middle] > value)
 		{
@@ -148,7 +150,7 @@ void BinarySearch(DynamicArray* dynamicArray, int value)
 		}
 	}
 
-	if (flag == true)
+	if (isFind == true)
 	{
 		cout << "Ёлемент " << value << " найден по индексу " << middle << endl;
 	}

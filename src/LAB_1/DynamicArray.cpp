@@ -47,7 +47,7 @@ void ShowArray(DynamicArray* dynamicArray)
 		cout << dynamicArray->Array[i] << " ";
 	}
 
-	cout << endl;
+	cout << "\n" << endl;
 }
 
 void GetArrayHandmade(DynamicArray* dynamicArray, int length)
@@ -55,7 +55,7 @@ void GetArrayHandmade(DynamicArray* dynamicArray, int length)
 	int value;
 	for (int i = 0; i < length; i++)
 	{
-		cout << "¬ведите " << i << " элемент массива: ";
+		cout << i << " элемент массива = ";
 		cin >> value;
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -63,7 +63,7 @@ void GetArrayHandmade(DynamicArray* dynamicArray, int length)
 	}
 }
 
-void GetArrayRandom(DynamicArray* dynamicArray, int length)
+void GetRandomArray(DynamicArray* dynamicArray, int length)
 {
 	srand(time(NULL));
 

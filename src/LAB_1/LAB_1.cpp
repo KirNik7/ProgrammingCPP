@@ -6,7 +6,6 @@ using namespace std;
 bool ArrayIsSorted = false;
 bool ArrayIsExists = false;
 
-
 void InputValueInMenu(int* value)
 {
 	cin >> *value;
@@ -27,11 +26,11 @@ void CreateArrayInMenu(DynamicArray* dynamicArray)
 		return;
 	}
 
-	int flag = true;
+	int isHaveNotCount = true;
 	int count;
 	cout << "Количество элементов массива = ";
 
-	while (flag)
+	while (isHaveNotCount)
 	{
 		InputValueInMenu(&count);
 
@@ -41,15 +40,15 @@ void CreateArrayInMenu(DynamicArray* dynamicArray)
 			continue;
 		}
 
-		flag = false;
+		isHaveNotCount = false;
 	}
 
-	flag = true;
+	bool isHaveNotChoice = true;
 	cout << "\nВыберите:" << endl;
 	cout << "1. Массив со случайными значениями" << endl;
 	cout << "2. Ввести свои значения для элементов массива" << endl;
 
-	while (flag)
+	while (isHaveNotChoice)
 	{
 		int key;
 		InputValueInMenu(&key);
@@ -58,17 +57,20 @@ void CreateArrayInMenu(DynamicArray* dynamicArray)
 		{
 			case 1:
 				GetRandomArray(dynamicArray, count);
-				flag = false;
+				isHaveNotChoice = false;
 				break;
 			case 2:
 				GetArrayByUser(dynamicArray, count);
-				flag = false;
+				isHaveNotChoice = false;
 				break;
 			default:
-				cout << "Введено неверное значение. Попробуйте снова";
+				cout << "Неверное значение.";
 				break;
 		}
 	}
+
+	cout << "\nМассив создан:\n";
+	ShowArray(dynamicArray);
 }
 
 void AddElementInMenu(DynamicArray* dynamicArray)
@@ -85,16 +87,7 @@ void AddElementInMenu(DynamicArray* dynamicArray)
 	InputValueInMenu(&value);
 	AddElement(dynamicArray, value);
 	ArrayIsSorted = false;
-}
-
-void ShowArrayInMenu(DynamicArray* dynamicArray)
-{
-	if (ArrayIsExists == false)
-	{
-		cout << "Массив не существует, сначала нужно создать массив." << endl;
-		return;
-	}
-
+	cout << "\nНовый элемент добавлен в массив:\n";
 	ShowArray(dynamicArray);
 }
 
@@ -133,6 +126,9 @@ void RemoveElementInMenu(DynamicArray* dynamicArray)
 	{
 		ArrayIsExists = false;
 	}
+
+	cout << "\nУказанный элемент был удален массива:\n";
+	ShowArray(dynamicArray);
 }
 
 void InsertELementInMenu(DynamicArray* dynamicArray)
@@ -145,7 +141,7 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 
 	int value;
 	int index;
-	int flag = true;
+	int isHaveNotIndex = true;
 
 	cout << "Значение нового элемента = ";
 	InputValueInMenu(&value);
@@ -154,7 +150,7 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 	cout << "1. в начало массива" << endl;
 	cout << "2. после определенного элемента" << endl;
 	cout << "3. в конец массива" << endl;
-	while (flag)
+	while (isHaveNotIndex)
 	{
 		int key;
 
@@ -166,7 +162,7 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 			index = 0;
 			InsertElement(dynamicArray, value, index);
 			ArrayIsSorted = false;
-			flag = false;
+			isHaveNotIndex = false;
 			break;
 		case 2:
 			cout << "Индекс массива, после которого нужно расположить новый элемент = ";
@@ -187,19 +183,21 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 
 			InsertElement(dynamicArray, value, index);
 			ArrayIsSorted = false;
-			flag = false;
+			isHaveNotIndex = false;
 			break;
 		case 3:
 			index = dynamicArray->Length;
 			InsertElement(dynamicArray, value, index);
 			ArrayIsSorted = false;
-			flag = false;
+			isHaveNotIndex = false;
 			break;
 		default:
 			cout << "Неверное значение.";
 			break;
 		}
 	}
+	cout << "\nНовый элемент добавлен на указанное место:\n";
+	ShowArray(dynamicArray);
 }
 
 void SortArrayInMenu(DynamicArray* dynamicArray)
@@ -212,6 +210,8 @@ void SortArrayInMenu(DynamicArray* dynamicArray)
 
 	SortArray(dynamicArray);
 	ArrayIsSorted = true;
+	cout << "\nМассив отсортирован:\n";
+	ShowArray(dynamicArray);
 }
 
 void LinearSearchInMenu(DynamicArray* dynamicArray)
@@ -258,15 +258,14 @@ int main()
 
 	while (isInWork)
 	{
-		cout << "\n1. Создание массива." << endl;;
-		cout << "2. Вывод массива на экран." << endl;
-		cout << "3. Удаление элемента." << endl;
-		cout << "4. Вставка элемента." << endl;
-		cout << "5. Добавление элемента в массив." << endl;
-		cout << "6. Сортировка массива." << endl;
-		cout << "7. Линейный поиск." << endl;
-		cout << "8. Бинарный поиск." << endl;
-		cout << "9. Выход.\n" << endl;
+		cout << "\n1. Создание массива." << endl
+			<< "2. Удаление элемента." << endl
+			<< "3. Вставка элемента." << endl
+			<< "4. Добавление элемента в массив." << endl
+			<< "5. Сортировка массива." << endl
+			<< "6. Линейный поиск." << endl
+			<< "7. Бинарный поиск." << endl
+			<< "8. Выход.\n" << endl;
 
 		int key;
 		InputValueInMenu(&key);
@@ -277,27 +276,24 @@ int main()
 				CreateArrayInMenu(dynamicArray);
 				break;
 			case 2:
-				ShowArrayInMenu(dynamicArray);
-				break;
-			case 3:
 				RemoveElementInMenu(dynamicArray);
 				break;
-			case 4:
+			case 3:
 				InsertELementInMenu(dynamicArray);
 				break;
-			case 5:
+			case 4:
 				AddElementInMenu(dynamicArray);
 				break;
-			case 6:
+			case 5:
 				SortArrayInMenu(dynamicArray);
 				break;
-			case 7:
+			case 6:
 				LinearSearchInMenu(dynamicArray);
 				break;
-			case 8:
+			case 7:
 				BinarySearchInMenu(dynamicArray);
 				break;
-			case 9:
+			case 8:
 				isInWork = false;
 				break;
 			default:

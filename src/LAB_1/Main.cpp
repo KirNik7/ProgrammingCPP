@@ -82,7 +82,6 @@ void AddElementInMenu(DynamicArray* dynamicArray)
 	}
 
 	int value;
-	int index;
 	cout << "Значение нового элемента = ";
 	InputValueInMenu(&value);
 	AddElement(dynamicArray, value);
@@ -265,7 +264,7 @@ int main()
 			<< "5. Сортировка массива." << endl
 			<< "6. Линейный поиск." << endl
 			<< "7. Бинарный поиск." << endl
-			<< "8. Выход.\n" << endl;
+			<< "0. Выход.\n" << endl;
 
 		int key;
 		InputValueInMenu(&key);
@@ -293,7 +292,7 @@ int main()
 			case 7:
 				BinarySearchInMenu(dynamicArray);
 				break;
-			case 8:
+			case 0:
 				isInWork = false;
 				break;
 			default:

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <random>
 #include <ctime>
+
 using namespace std;
 
 void CreateArray(DynamicArray* dynamicArray)

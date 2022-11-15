@@ -69,8 +69,7 @@ void CreateArrayInMenu(DynamicArray* dynamicArray)
 		}
 	}
 
-	cout << "\nМассив создан:\n";
-	ShowArray(dynamicArray);
+	cout << "\nМассив создан.\n";
 }
 
 void AddElementInMenu(DynamicArray* dynamicArray)
@@ -86,8 +85,7 @@ void AddElementInMenu(DynamicArray* dynamicArray)
 	InputValueInMenu(&value);
 	AddElement(dynamicArray, value);
 	ArrayIsSorted = false;
-	cout << "\nНовый элемент добавлен в массив:\n";
-	ShowArray(dynamicArray);
+	cout << "\nНовый элемент добавлен в массив.\n";
 }
 
 void RemoveElementInMenu(DynamicArray* dynamicArray)
@@ -126,8 +124,7 @@ void RemoveElementInMenu(DynamicArray* dynamicArray)
 		ArrayIsExists = false;
 	}
 
-	cout << "\nУказанный элемент был удален массива:\n";
-	ShowArray(dynamicArray);
+	cout << "\nУказанный элемент был удален массива.\n";
 }
 
 void InsertELementInMenu(DynamicArray* dynamicArray)
@@ -195,8 +192,7 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 			break;
 		}
 	}
-	cout << "\nНовый элемент добавлен на указанное место:\n";
-	ShowArray(dynamicArray);
+	cout << "\nНовый элемент добавлен на указанное место.\n";
 }
 
 void SortArrayInMenu(DynamicArray* dynamicArray)
@@ -209,8 +205,7 @@ void SortArrayInMenu(DynamicArray* dynamicArray)
 
 	SortArray(dynamicArray);
 	ArrayIsSorted = true;
-	cout << "\nМассив отсортирован:\n";
-	ShowArray(dynamicArray);
+	cout << "\nМассив отсортирован.\n";
 }
 
 void LinearSearchInMenu(DynamicArray* dynamicArray)
@@ -224,7 +219,15 @@ void LinearSearchInMenu(DynamicArray* dynamicArray)
 	int value;
 	cout << "Значение элемента, который нужно найти = ";
 	InputValueInMenu(&value);
-	LinearSearch(dynamicArray, value);
+	if (LinearSearch(dynamicArray, value) == -1)
+	{
+		cout << "Элемент не найден" << endl;
+	}
+	else
+	{
+		cout << "Элемент " << value << " найден по индексу " << 
+			LinearSearch(dynamicArray, value) << endl;
+	}
 }
 
 void BinarySearchInMenu(DynamicArray* dynamicArray)
@@ -243,7 +246,36 @@ void BinarySearchInMenu(DynamicArray* dynamicArray)
 	int value;
 	cout << "Значение элемента, который нужно найти = ";
 	InputValueInMenu(&value);
-	BinarySearch(dynamicArray, value);
+	if (BinarySearch(dynamicArray, value) == -1)
+	{
+		cout << "Элемент не найден" << endl;
+	}
+	else
+	{
+		cout << "Элемент " << value << " найден по индексу " << 
+			BinarySearch(dynamicArray, value) << endl;
+	}
+}
+
+void GetArrayByUser(DynamicArray* dynamicArray, int length)
+{
+	int value;
+	for (int i = 0; i < length; i++)
+	{
+		cout << i << " элемент массива = ";
+		cin >> value;
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		AddElement(dynamicArray, value);
+	}
+}
+
+void ShowArray(DynamicArray* dynamicArray)
+{
+	for (int i = 0; i < dynamicArray->Length; i++)
+	{
+		cout << dynamicArray->Array[i] << " ";
+	}
 }
 
 int main()
@@ -253,10 +285,23 @@ int main()
 
 	bool isInWork = true;
 
-	cout << "Функции для работы с массивом:" << endl;
-
 	while (isInWork)
 	{
+		cout << "Текущий массив:\n";
+
+		if (ArrayIsExists)
+		{
+			ShowArray(dynamicArray);
+		}
+		else
+		{
+			cout << "Не создан.";
+		}
+
+		cout << "\n" << endl;
+
+		cout << "Функции для работы с массивом:\n";
+
 		cout << "\n1. Создание массива." << endl
 			<< "2. Удаление элемента." << endl
 			<< "3. Вставка элемента." << endl

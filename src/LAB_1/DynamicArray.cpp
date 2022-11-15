@@ -40,16 +40,7 @@ void AddElement(DynamicArray* dynamicArray, int value)
 	dynamicArray->Array[dynamicArray->Length - 1] = value;
 }
 
-void ShowArray(DynamicArray* dynamicArray)
-{
-	for (int i = 0; i < dynamicArray->Length; i++)
-	{
-		cout << dynamicArray->Array[i] << " ";
-	}
-
-	cout << endl;
-}
-
+/*
 void GetArrayByUser(DynamicArray* dynamicArray, int length)
 {
 	int value;
@@ -62,6 +53,7 @@ void GetArrayByUser(DynamicArray* dynamicArray, int length)
 		AddElement(dynamicArray, value);
 	}
 }
+*/
 
 void GetRandomArray(DynamicArray* dynamicArray, int length)
 {
@@ -106,7 +98,7 @@ void SortArray(DynamicArray* dynamicArray)
 	}
 }
 
-void LinearSearch(DynamicArray* dynamicArray, int value)
+ int LinearSearch(DynamicArray* dynamicArray, int value)
 {
 	bool isFind = false;
 
@@ -114,19 +106,13 @@ void LinearSearch(DynamicArray* dynamicArray, int value)
 	{
 		if (dynamicArray->Array[i] == value)
 		{
-			cout << "Ёлемент " << value << " найден по индексу " << i << endl;
-			isFind = true;
-			return;
+			return i;
 		}
 	}
-
-	if (isFind == false)
-	{
-		cout << "Ёлемент не найден" << endl;
-	}
+	return -1;
 }
 
-void BinarySearch(DynamicArray* dynamicArray, int value)
+int BinarySearch(DynamicArray* dynamicArray, int value)
 {
 	int left = 0;
 	int right = dynamicArray->Length;
@@ -153,11 +139,11 @@ void BinarySearch(DynamicArray* dynamicArray, int value)
 
 	if (isFind == true)
 	{
-		cout << "Ёлемент " << value << " найден по индексу " << middle << endl;
+		return middle;
 	}
 	else
 	{
-		cout << "Ёлемент не найден" << endl;
+		return -1;
 	}
 }
 

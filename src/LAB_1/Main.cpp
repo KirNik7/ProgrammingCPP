@@ -6,6 +6,10 @@ using namespace std;
 bool ArrayIsSorted = false;
 bool ArrayIsExists = false;
 
+/// <summary>
+/// Реализует функцию ввода значения в меню.
+/// </summary>
+/// <param name="value">Значение в меню.</param>
 void InputValueInMenu(int* value)
 {
 	cin >> *value;
@@ -13,6 +17,10 @@ void InputValueInMenu(int* value)
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
+/// <summary>
+/// Реализует создание массива через меню.
+/// </summary>
+/// <param name="dynamicArray">Динамический массив.</param>
 void CreateArrayInMenu(DynamicArray* dynamicArray)
 {
 	if (ArrayIsExists == false)
@@ -60,7 +68,7 @@ void CreateArrayInMenu(DynamicArray* dynamicArray)
 				isHaveNotChoice = false;
 				break;
 			case 2:
-				GetArrayByUser(dynamicArray, count);
+				GetArrayByUserInMenu(dynamicArray, count);
 				isHaveNotChoice = false;
 				break;
 			default:
@@ -72,6 +80,10 @@ void CreateArrayInMenu(DynamicArray* dynamicArray)
 	cout << "\nМассив создан.\n";
 }
 
+/// <summary>
+/// Реализует добавление нового элемента в динамический массив через меню.
+/// </summary>
+/// <param name="dynamicArray">Динамический массив.</param>
 void AddElementInMenu(DynamicArray* dynamicArray)
 {
 	if (ArrayIsExists == false)
@@ -88,6 +100,10 @@ void AddElementInMenu(DynamicArray* dynamicArray)
 	cout << "\nНовый элемент добавлен в массив.\n";
 }
 
+/// <summary>
+/// Реализует удаление элемента динамического массива через меню.
+/// </summary>
+/// <param name="dynamicArray">Динамический массив.</param>
 void RemoveElementInMenu(DynamicArray* dynamicArray)
 {
 	if (ArrayIsExists == false)
@@ -127,6 +143,10 @@ void RemoveElementInMenu(DynamicArray* dynamicArray)
 	cout << "\nУказанный элемент был удален массива.\n";
 }
 
+/// <summary>
+/// Реализует вставку нового элемента в динамический массив через меню.
+/// </summary>
+/// <param name="dynamicArray">Динамический массив.</param>
 void InsertELementInMenu(DynamicArray* dynamicArray)
 {
 	if (ArrayIsExists == false)
@@ -195,6 +215,10 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 	cout << "\nНовый элемент добавлен на указанное место.\n";
 }
 
+/// <summary>
+/// Реализует сортировку динамического массива через меню.
+/// </summary>
+/// <param name="dynamicArray">Динамический массив.</param>
 void SortArrayInMenu(DynamicArray* dynamicArray)
 {
 	if (ArrayIsExists == false)
@@ -208,6 +232,10 @@ void SortArrayInMenu(DynamicArray* dynamicArray)
 	cout << "\nМассив отсортирован.\n";
 }
 
+/// <summary>
+/// Реализует линейный поиск элемента в динамическом массиве через меню.
+/// </summary>
+/// <param name="dynamicArray">Динамический массив.</param>
 void LinearSearchInMenu(DynamicArray* dynamicArray)
 {
 	if (ArrayIsExists == false)
@@ -230,6 +258,10 @@ void LinearSearchInMenu(DynamicArray* dynamicArray)
 	}
 }
 
+/// <summary>
+/// Реализует бинарный поиск элемента в динамическом массиве через меню.
+/// </summary>
+/// <param name="dynamicArray">Динамический массив.</param>
 void BinarySearchInMenu(DynamicArray* dynamicArray)
 {
 	if (ArrayIsExists == false)
@@ -257,7 +289,12 @@ void BinarySearchInMenu(DynamicArray* dynamicArray)
 	}
 }
 
-void GetArrayByUser(DynamicArray* dynamicArray, int length)
+/// <summary>
+/// Реализует получение пользовательских элементов динамического массива через меню.
+/// </summary>
+/// <param name="dynamicArray">Динамический массив.</param>
+/// <param name="length">Длина динамического массива.</param>
+void GetArrayByUserInMenu(DynamicArray* dynamicArray, int length)
 {
 	int value;
 	for (int i = 0; i < length; i++)
@@ -270,14 +307,6 @@ void GetArrayByUser(DynamicArray* dynamicArray, int length)
 	}
 }
 
-void ShowArray(DynamicArray* dynamicArray)
-{
-	for (int i = 0; i < dynamicArray->Length; i++)
-	{
-		cout << dynamicArray->Array[i] << " ";
-	}
-}
-
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -287,11 +316,14 @@ int main()
 
 	while (isInWork)
 	{
-		cout << "Текущий массив:\n";
+		cout << "\nТекущий массив:\n";
 
 		if (ArrayIsExists)
 		{
-			ShowArray(dynamicArray);
+			for (int i = 0; i < dynamicArray->Length; i++)
+			{
+				cout << dynamicArray->Array[i] << " ";
+			}
 		}
 		else
 		{

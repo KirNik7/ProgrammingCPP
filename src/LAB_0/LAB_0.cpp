@@ -41,7 +41,7 @@ void Task1112()
 void Task1121()
 {
 	const int n = 10;
-	// TODO:
+	// TODO: Done
 	int array[n];
 
 	cout << "Source array is:\n";
@@ -81,7 +81,7 @@ void Task1122()
 	cout << "Source array is:\n";
 	for (int i = 0; i < n; i++)
 	{
-		// TODO:
+		// TODO: Done
 		array[i] = floor(rand()) / 100;
 		cout << array[i] << " ";
 	}
@@ -428,7 +428,7 @@ void Task1154()
 	cout << "Array of double:\n";
 	for (int i = 0; i < n; i++)
 	{
-		// TODO:
+		// TODO: Done
 		array[i] = floor(rand()) / 100;
 		cout << array[i] << " ";
 	}
@@ -596,11 +596,11 @@ void RepeatForTask1158(int count)
 
 void Task1158()
 {
-	// TODO:
+	// TODO: Done
 	int count = 15;
 	RepeatForTask1158(count);
 	
-	// TODO:
+	// TODO: Done
 	count = 20;
 	RepeatForTask1158(count);
 }
@@ -635,7 +635,7 @@ int main()
 
 		cin >> choice;
 		switch (choice)
-		{// TODO:
+		{// TODO: Done
 			case 0:
 				return 0;
 			case 1:

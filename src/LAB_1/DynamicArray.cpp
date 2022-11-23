@@ -5,10 +5,6 @@
 
 using namespace std;
 
-/// <summary>
-/// Реализует создание динамического массива.
-/// </summary>
-/// <param name="dynamicArray">Динамический массив.</param>
 void CreateArray(DynamicArray* dynamicArray)
 {
 	int capacity = 4;
@@ -17,13 +13,9 @@ void CreateArray(DynamicArray* dynamicArray)
 	dynamicArray->Array = new int[dynamicArray->Capacity];
 }
 
-/// <summary>
-/// Реализует изменение размера динамического массива.
-/// </summary>
-/// <param name="dynamicArray">Динамический массив.</param>
 void ResizeArray(DynamicArray* dynamicArray)
 {
-	dynamicArray->Capacity += 10;
+	dynamicArray->Capacity *= 2;
 	int* tempArray = new int[dynamicArray->Capacity];
 
 	for (int i = 0; i < dynamicArray->Length - 1; i++)
@@ -35,11 +27,6 @@ void ResizeArray(DynamicArray* dynamicArray)
 	dynamicArray->Array = tempArray;
 }
 
-/// <summary>
-/// Реализует добавление нового элемента в динамический массив.
-/// </summary>
-/// <param name="dynamicArray">Динамический массив.</param>
-/// <param name="value">Значение, которое нужно добавить в динамический массив.</param>
 void AddElement(DynamicArray* dynamicArray, int value)
 {
 	dynamicArray->Length++;
@@ -52,11 +39,6 @@ void AddElement(DynamicArray* dynamicArray, int value)
 	dynamicArray->Array[dynamicArray->Length - 1] = value;
 }
 
-/// <summary>
-/// Реализует заполнение динамического массива случайными значениями.
-/// </summary>
-/// <param name="dynamicArray">Динамический массив.</param>
-/// <param name="length">Длина динамического массива.</param>
 void GetRandomArray(DynamicArray* dynamicArray, int length)
 {
 	srand(time(NULL));
@@ -67,12 +49,6 @@ void GetRandomArray(DynamicArray* dynamicArray, int length)
 	}
 }
 
-/// <summary>
-/// Реализует вставку нового элемента в динамический массив.
-/// </summary>
-/// <param name="dynamicArray">Динамический массив.</param>
-/// <param name="value">Значение, которое нужно вставить.</param>
-/// <param name="index">Индекс элемента, после </param>
 void InsertElement(DynamicArray* dynamicArray, int value, int index)
 {
 	dynamicArray->Length++;

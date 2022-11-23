@@ -8,31 +8,14 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	DynamicArray* dynamicArray = new DynamicArray;
-
 	bool isInWork = true;
 
 	while (isInWork)
 	{
 		cout << "\nТекущий массив:\n";
-
 		ArrayIsExistsInMenu(dynamicArray);
-		/*
-		if (isExists)
-		{
-			for (int i = 0; i < dynamicArray->Length; i++)
-			{
-				cout << dynamicArray->Array[i] << " ";
-			}
-		}
-		else
-		{
-			cout << "Не создан.";
-		}
-		*/
 		cout << "\n" << endl;
-
 		cout << "Функции для работы с массивом:\n";
-
 		cout << "\n1. Создание массива." << endl
 			<< "2. Удаление элемента." << endl
 			<< "3. Вставка элемента." << endl
@@ -41,10 +24,18 @@ int main()
 			<< "6. Линейный поиск." << endl
 			<< "7. Бинарный поиск." << endl
 			<< "0. Выход.\n" << endl;
-
 		int key;
 		InputValueInMenu(&key);
-
+		/*
+		try
+		{
+			InputValueInMenu(&key);
+		}
+		catch (int choice)
+		{
+			cout << "Введено неверное значение.";
+		}
+		*/
 		switch (key)
 		{
 			case 1:

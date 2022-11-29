@@ -16,9 +16,20 @@ void CreateArray(DynamicArray* dynamicArray)
 void ResizeArray(DynamicArray* dynamicArray)
 {
 	dynamicArray->Capacity *= 2;
+	UpdateArray(dynamicArray);
+}
+
+void ReductionArray(DynamicArray* dynamicArray)
+{
+	dynamicArray->Capacity /= 2;
+	UpdateArray(dynamicArray);
+}
+
+void UpdateArray(DynamicArray* dynamicArray)
+{
 	int* tempArray = new int[dynamicArray->Capacity];
 
-	for (int i = 0; i < dynamicArray->Length - 1; i++)
+	for (int i = 0; i < dynamicArray->Length; i++)
 	{
 		tempArray[i] = dynamicArray->Array[i];
 	}
@@ -138,5 +149,10 @@ void RemoveElement(DynamicArray* dynamicArray, int index)
 		dynamicArray->Array[i] = dynamicArray->Array[i + 1];
 	}
 
-	dynamicArray->Length -= 1;
+	dynamicArray->Length--;
+
+	if (dynamicArray->Length <= dynamicArray->Capacity / 2)
+	{
+		ReductionArray(dynamicArray);
+	}
 }

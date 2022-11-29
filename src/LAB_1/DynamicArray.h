@@ -32,6 +32,14 @@ void InsertElement(DynamicArray* dynamicArray, int value, int index);
 /// @param dynamicArray Динамический массив.
 void ResizeArray(DynamicArray* dynamicArray);
 
+/// @brief Реализует уменьшение размера динамического массива.
+/// @param dynamicArray Динамический массив.
+void ReductionArray(DynamicArray* dynamicArray);
+
+/// @brief Реализует обновление динамического массива.
+/// @param dynamicArray Динамический массив.
+void UpdateArray(DynamicArray* dynamicArray);
+
 /// @brief Реализует заполнение динамического массива случайными значениями.
 /// @param dynamicArray Динамический массив.
 /// @param length Длина динамического массива.

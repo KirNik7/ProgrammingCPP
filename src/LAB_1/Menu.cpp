@@ -282,7 +282,7 @@ void GetArrayByUserInMenu(DynamicArray* dynamicArray, int length)
 	}
 }
 
-void ArrayIsExistsInMenu(DynamicArray* dynamicArray)
+void PrintArrayInMenu(DynamicArray* dynamicArray)
 {
 	if (ArrayIsExists)
 	{

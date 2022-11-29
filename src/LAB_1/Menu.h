@@ -37,6 +37,6 @@ void BinarySearchInMenu(DynamicArray* dynamicArray);
 /// /// @param length Длина динамического массива.
 void GetArrayByUserInMenu(DynamicArray* dynamicArray, int length);
 
-/// @brief Реализует получение информации о существовании днамического массива.
-/// @return Возвращает информацию о существовании динамического массива.
-void ArrayIsExistsInMenu(DynamicArray* dynamicArray);
+/// @brief Реализует получение значений днамического массива.
+/// @return Возвращает элементы динамического массива.
+void PrintArrayInMenu(DynamicArray* dynamicArray);

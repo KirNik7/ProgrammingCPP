@@ -13,7 +13,7 @@ int main()
 	while (isInWork)
 	{
 		cout << "\nТекущий массив:\n";
-		ArrayIsExistsInMenu(dynamicArray);
+		PrintArrayInMenu(dynamicArray);
 		cout << "\n" << endl;
 		cout << "Функции для работы с массивом:\n";
 		cout << "\n1. Создание массива." << endl

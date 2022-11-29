@@ -9,9 +9,16 @@ bool ArrayIsExists = false;
 
 void InputValueInMenu(int* value)
 {
-	cin >> *value;
-	cin.clear();
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	while (true)
+	{
+		cin >> *value;
+
+		if (!cin.fail()) return;
+		
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cout << "Неверное значение, введите число: ";
+	}
 }
 
 void CreateArrayInMenu(DynamicArray* dynamicArray)

@@ -25,17 +25,9 @@ int main()
 			<< "7. Бинарный поиск." << endl
 			<< "0. Выход.\n" << endl;
 		int key;
+		
 		InputValueInMenu(&key);
-		/*
-		try
-		{
-			InputValueInMenu(&key);
-		}
-		catch (int choice)
-		{
-			cout << "Введено неверное значение.";
-		}
-		*/
+		
 		switch (key)
 		{
 			case 1:

@@ -4,8 +4,8 @@
 
 using namespace std;
 
-//TODO: remove
-//bool ArrayIsSorted = false;
+//TODO: remove DONE
+//there were flags here
 
 void InputValueInMenu(int* value)
 {
@@ -63,6 +63,7 @@ void CreateArrayInMenu(DynamicArray* dynamicArray)
 		switch (key)
 		{
 			//TODO: DONE
+			//rsdn
 			case 1:
 				GetRandomArray(dynamicArray, count);
 				isHaveNotChoice = false;

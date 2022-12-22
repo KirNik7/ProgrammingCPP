@@ -153,7 +153,7 @@ void ChoiceInsertMode(List* list)
 		case 2:
 			cout << "Введите значение элемента, который нужно вставить в конец списка: ";
 			InputValue(&value);
-			InsertElementInEnd(list, value);
+			AddElement(list, value);
 			break;
 		case 3:
 			while (true)
@@ -166,10 +166,12 @@ void ChoiceInsertMode(List* list)
 				}
 				else
 				{
-					cout << "Неверное значение. Индекс должен быть в пределах от 0 до длины списка." << endl;
+					cout << "Неверное значение. Индекс должен быть " 
+						<< "в пределах от 0 до длины списка." << endl;
 				}
 			}
-			cout << "Введите значение элемента, который нужно вставить после " << index << " элемента списка: ";
+			cout << "Введите значение элемента, который нужно вставить после " 
+				<< index << " элемента списка: ";
 			InputValue(&value);
 			InsertElementAfterCertainElement(list, index, value);
 			break;
@@ -184,10 +186,12 @@ void ChoiceInsertMode(List* list)
 				}
 				else
 				{
-					cout << "Неверное значение. Индекс должен быть в пределах от 0 до длины списка." << endl;
+					cout << "Неверное значение. Индекс должен быть "
+						<< "в пределах от 0 до длины списка." << endl;
 				}
 			}
-			cout << "Введите значение элемента, который нужно вставить перед " << index << " элементом списка: ";
+			cout << "Введите значение элемента, который нужно вставить перед " 
+				<< index << " элементом списка: ";
 			InputValue(&value);
 			InsertElementBeforeCertainElement(list, index, value);
 			break;
@@ -195,7 +199,6 @@ void ChoiceInsertMode(List* list)
 			cout << "Неверное значение." << endl;
 			break;
 	}
-	//delete &index;
 }
 		
 
@@ -235,7 +238,6 @@ int main()
 			int index;
 			InputValue(&index);
 			RemoveElement(list, index);
-			//delete &index;
 			break;
 		case 3:
 			if (list->Length == 0)
@@ -264,7 +266,8 @@ int main()
 			InputValue(&value);
 			if (LinearSearch(list, value) != -1)
 			{
-				cout << "Элемент списка найден под индексом " << LinearSearch(list, value) << "." << endl;
+				cout << "Элемент списка найден под индексом " 
+					<< LinearSearch(list, value) << "." << endl;
 			}
 			else
 			{

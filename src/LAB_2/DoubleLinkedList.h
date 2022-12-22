@@ -34,12 +34,6 @@ void CreateList(List* list);
 /// @param value - значение элемента.
 void AddElement(List* list, int value);
 
-/// @brief ѕолучение значени€ элемента линейного двусв€зного списка по индексу.
-/// @param list - указатель на линейный двусв€зный список.
-/// @param index - индекс элемента.
-/// @return «начение элемента.
-int GetElement(List* list, int index);
-
 /// @brief ”даление элемента из линейного двусв€зного списка.
 /// @param list - указатель на линейный двусв€зный список.
 /// @param index - индекс элемента.
@@ -49,11 +43,6 @@ void RemoveElement(List* list, int index);
 /// @param list - указатель на линейный двусв€зный список.
 /// @param value - значение элемента.
 void InsertElementInBegin(List* list, int value);
-
-/// @brief ¬ставка элемента в конец линейного двусв€зного списка.
-/// @param list - указатель на линейный двусв€зный список.
-/// @param value - значение элемента.
-void InsertElementInEnd(List* list, int value);
 
 /// @brief ¬ставка элемента в линейный двусв€зный список после определенного элемента.
 /// @param list - указатель на линейный двусв€зный список.

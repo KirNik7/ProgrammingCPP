@@ -34,18 +34,6 @@ void AddElement(List* list, int value)
 	list->Length++;
 }
 
-int GetElement(List* list, int index)
-{
-	ListItem* tempListItem = list->Head;
-
-	for (int i = 0; i < index; i++)
-	{
-		tempListItem = tempListItem->Next;
-	}
-
-	return tempListItem->Value;
-}
-
 void RemoveElement(List* list, int index)
 {
 	if (index == 0)
@@ -94,22 +82,11 @@ void InsertElementInBegin(List* list, int value)
 	list->Length++;
 }
 
-void InsertElementInEnd(List* list, int value)
-{
-	ListItem* listItem = new ListItem;
-	listItem->Value = value;
-	listItem->Next = nullptr;
-	listItem->Prev = list->Tail;
-	list->Tail->Next = listItem;
-	list->Tail = listItem;
-	list->Length++;
-}
-
 void InsertElementAfterCertainElement(List* list, int index, int value)
 {
 	if (index == list->Length - 1)
 	{
-		InsertElementInEnd(list, value);
+		AddElement(list, value);
 	}
 	else
 	{

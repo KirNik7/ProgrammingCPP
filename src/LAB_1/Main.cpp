@@ -8,9 +8,9 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	DynamicArray* dynamicArray = new DynamicArray;
-	bool isInWork = true;
+	//TODO: remove DONE
 
-	while (isInWork)
+	while (true)
 	{
 		cout << "\nТекущий массив:\n";
 		PrintArrayInMenu(dynamicArray);
@@ -52,8 +52,7 @@ int main()
 				BinarySearchInMenu(dynamicArray);
 				break;
 			case 0:
-				isInWork = false;
-				break;
+				exit(0);
 			default:
 				cout << "Неверное значение." << endl;
 				break;

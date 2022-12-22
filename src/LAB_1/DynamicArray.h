@@ -3,9 +3,10 @@
 /// @brief Хранит информацию о динамическом массиве.
 struct DynamicArray
 {
+	//TODO:comments
 	int* Array;
 	int Capacity;
-	int Length;
+	int Length = 0;
 };
 
 /// @brief Реализует создание динамического массива.

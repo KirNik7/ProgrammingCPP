@@ -5,6 +5,8 @@
 
 using namespace std;
 
+const int multiplierCapacity = 2;
+
 void CreateArray(DynamicArray* dynamicArray)
 {
 	int capacity = 4;
@@ -15,13 +17,15 @@ void CreateArray(DynamicArray* dynamicArray)
 
 void ResizeArray(DynamicArray* dynamicArray)
 {
-	dynamicArray->Capacity *= 2;
+	//TODO: to const DONE
+	dynamicArray->Capacity *= multiplierCapacity;
 	UpdateArray(dynamicArray);
 }
 
 void ReductionArray(DynamicArray* dynamicArray)
 {
-	dynamicArray->Capacity /= 2;
+	//TODO: to const DONE
+	dynamicArray->Capacity /= multiplierCapacity;
 	UpdateArray(dynamicArray);
 }
 
@@ -31,7 +35,7 @@ void UpdateArray(DynamicArray* dynamicArray)
 
 	for (int i = 0; i < dynamicArray->Length; i++)
 	{
-		tempArray[i] = dynamicArray->Array[i];
+		tempArray[i] = dynamicArray->Array[i];	
 	}
 
 	delete[] dynamicArray->Array;
@@ -52,7 +56,8 @@ void AddElement(DynamicArray* dynamicArray, int value)
 
 void GetRandomArray(DynamicArray* dynamicArray, int length)
 {
-	srand(time(NULL));
+	//TODO: nullptr DONE
+	srand(time(nullptr));
 
 	for (int i = 0; i < length; i++)
 	{
@@ -95,7 +100,7 @@ void SortArray(DynamicArray* dynamicArray)
 
  int LinearSearch(DynamicArray* dynamicArray, int value)
 {
-	bool isFind = false;
+	 //TODO: remove DONE
 
 	for (int i = 0; i < dynamicArray->Length; i++)
 	{
@@ -151,7 +156,8 @@ void RemoveElement(DynamicArray* dynamicArray, int index)
 
 	dynamicArray->Length--;
 
-	if (dynamicArray->Length <= dynamicArray->Capacity / 2)
+	//TODO: const DONE
+	if (dynamicArray->Length <= dynamicArray->Capacity / multiplierCapacity)
 	{
 		ReductionArray(dynamicArray);
 	}

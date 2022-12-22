@@ -1,12 +1,28 @@
 #pragma once
-#include "ListItem.h";
 
-/// @brief Структура линейного двусвязного списка.
+struct ListItem
+{
+    /// @brief Следующий элемент.
+    ListItem* Next = nullptr;
+
+    /// @brief Преыдущий элемент.
+    ListItem* Prev = nullptr;
+
+    /// @brief Значение элемента.
+    int Value = 0;
+};
+
+
 struct List
 {
-	Node* Head;
-	Node* Tail;
-	int Length;
+    /// @brief Указатель на первый элемент списка.
+    ListItem* Head = nullptr;
+
+    /// @brief Указатель на последний элемент списка.
+    ListItem* Tail = nullptr;
+
+    /// @brief Длина списка.
+    int Length = 0;
 };
 
 /// @brief Создание линейного двусвязного списка.
@@ -17,6 +33,12 @@ void CreateList(List* list);
 /// @param list - указатель на линейный двусвязный список.
 /// @param value - значение элемента.
 void AddElement(List* list, int value);
+
+/// @brief Получение значения элемента линейного двусвязного списка по индексу.
+/// @param list - указатель на линейный двусвязный список.
+/// @param index - индекс элемента.
+/// @return Значение элемента.
+int GetElement(List* list, int index);
 
 /// @brief Удаление элемента из линейного двусвязного списка.
 /// @param list - указатель на линейный двусвязный список.

@@ -4,8 +4,8 @@
 
 using namespace std;
 
-bool ArrayIsSorted = false;
-bool ArrayIsExists = false;
+//TODO: remove
+//bool ArrayIsSorted = false;
 
 void InputValueInMenu(int* value)
 {
@@ -23,10 +23,9 @@ void InputValueInMenu(int* value)
 
 void CreateArrayInMenu(DynamicArray* dynamicArray)
 {
-	if (ArrayIsExists == false)
+	if (dynamicArray->Length == 0)
 	{
 		CreateArray(dynamicArray);
-		ArrayIsExists = true;
 	}
 	else
 	{
@@ -63,17 +62,18 @@ void CreateArrayInMenu(DynamicArray* dynamicArray)
 
 		switch (key)
 		{
-		case 1:
-			GetRandomArray(dynamicArray, count);
-			isHaveNotChoice = false;
-			break;
-		case 2:
-			GetArrayByUserInMenu(dynamicArray, count);
-			isHaveNotChoice = false;
-			break;
-		default:
-			cout << "Неверное значение.";
-			break;
+			//TODO: DONE
+			case 1:
+				GetRandomArray(dynamicArray, count);
+				isHaveNotChoice = false;
+				break;
+			case 2:
+				GetArrayByUserInMenu(dynamicArray, count);
+				isHaveNotChoice = false;
+				break;
+			default:
+				cout << "Неверное значение.";
+				break;
 		}
 	}
 
@@ -82,7 +82,7 @@ void CreateArrayInMenu(DynamicArray* dynamicArray)
 
 void AddElementInMenu(DynamicArray* dynamicArray)
 {
-	if (ArrayIsExists == false)
+	if (dynamicArray->Length == 0)
 	{
 		cout << "Массив не существует, сначала нужно создать массив." << endl;
 		return;
@@ -92,13 +92,12 @@ void AddElementInMenu(DynamicArray* dynamicArray)
 	cout << "Значение нового элемента = ";
 	InputValueInMenu(&value);
 	AddElement(dynamicArray, value);
-	ArrayIsSorted = false;
 	cout << "\nНовый элемент добавлен в массив.\n";
 }
 
 void RemoveElementInMenu(DynamicArray* dynamicArray)
 {
-	if (ArrayIsExists == false)
+	if (dynamicArray->Length == 0)
 	{
 		cout << "Массив не существует, сначала нужно создать массив." << endl;
 		return;
@@ -127,17 +126,12 @@ void RemoveElementInMenu(DynamicArray* dynamicArray)
 
 	RemoveElement(dynamicArray, index);
 
-	if (dynamicArray->Length == 0)
-	{
-		ArrayIsExists = false;
-	}
-
 	cout << "\nУказанный элемент был удален массива.\n";
 }
 
 void InsertELementInMenu(DynamicArray* dynamicArray)
 {
-	if (ArrayIsExists == false)
+	if (dynamicArray->Length == 0)
 	{
 		cout << "Массив не существует, сначала нужно создать массив." << endl;
 		return;
@@ -161,42 +155,40 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 
 		switch (key)
 		{
-		case 1:
-			index = 0;
-			InsertElement(dynamicArray, value, index);
-			ArrayIsSorted = false;
-			isHaveNotIndex = false;
-			break;
-		case 2:
-			cout << "Индекс массива, после которого нужно расположить новый элемент = ";
-			InputValueInMenu(&index);
-			index++;
-
-			if (index < 0)
-			{
-				cout << "Индекс массива должен быть больше или равен 0." << endl;
+			//TODO: rsdn DONE
+			case 1:
+				index = 0;
+				InsertElement(dynamicArray, value, index);
+				isHaveNotIndex = false;
 				break;
-			}
+			case 2:
+				cout << "Индекс массива, после которого нужно расположить новый элемент = ";
+				InputValueInMenu(&index);
+				index++;
 
-			if (index > dynamicArray->Length)
-			{
-				cout << "Невозможно поставить элемент на это место." << index << endl;
+				if (index < 0)
+				{
+					cout << "Индекс массива должен быть больше или равен 0." << endl;
+					break;
+				}
+
+				if (index > dynamicArray->Length)
+				{
+					cout << "Невозможно поставить элемент на это место." << index << endl;
+					break;
+				}
+
+				InsertElement(dynamicArray, value, index);
+				isHaveNotIndex = false;
 				break;
-			}
-
-			InsertElement(dynamicArray, value, index);
-			ArrayIsSorted = false;
-			isHaveNotIndex = false;
-			break;
-		case 3:
-			index = dynamicArray->Length;
-			InsertElement(dynamicArray, value, index);
-			ArrayIsSorted = false;
-			isHaveNotIndex = false;
-			break;
-		default:
-			cout << "Неверное значение.";
-			break;
+			case 3:
+				index = dynamicArray->Length;
+				InsertElement(dynamicArray, value, index);
+				isHaveNotIndex = false;
+				break;
+			default:
+				cout << "Неверное значение.";
+				break;
 		}
 	}
 
@@ -205,20 +197,19 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 
 void SortArrayInMenu(DynamicArray* dynamicArray)
 {
-	if (ArrayIsExists == false)
+	if (dynamicArray->Length == 0)
 	{
 		cout << "Массив не существует, сначала нужно создать массив." << endl;
 		return;
 	}
 
 	SortArray(dynamicArray);
-	ArrayIsSorted = true;
 	cout << "\nМассив отсортирован.\n";
 }
 
 void LinearSearchInMenu(DynamicArray* dynamicArray)
 {
-	if (ArrayIsExists == false)
+	if (dynamicArray->Length == 0)
 	{
 		cout << "Массив не существует, сначала нужно создать массив." << endl;
 		return;
@@ -241,7 +232,7 @@ void LinearSearchInMenu(DynamicArray* dynamicArray)
 
 void BinarySearchInMenu(DynamicArray* dynamicArray)
 {
-	if (ArrayIsExists == false)
+	if (dynamicArray->Length == 0)
 	{
 		cout << "Массив не существует, сначала нужно создать массив." << endl;
 		return;
@@ -284,7 +275,7 @@ void GetArrayByUserInMenu(DynamicArray* dynamicArray, int length)
 
 void PrintArrayInMenu(DynamicArray* dynamicArray)
 {
-	if (ArrayIsExists)
+	if (dynamicArray->Length != 0)
 	{
 		for (int i = 0; i < dynamicArray->Length; i++)
 		{
@@ -296,4 +287,16 @@ void PrintArrayInMenu(DynamicArray* dynamicArray)
 	{
 		cout << "Не создан.";
 	}
+}
+
+bool ArrayIsSorted(DynamicArray dynamicArray)
+{
+	for (int i = 0; i < dynamicArray.Length - 1; i++)
+	{
+		if (dynamicArray.Array[i] < dynamicArray.Array[i + 1])
+			continue;
+		else
+			return false;
+	}
+	return true;
 }

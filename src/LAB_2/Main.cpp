@@ -225,60 +225,60 @@ int main()
 
 		switch (key)
 		{
-		case 1:
-			CreateListInMenu(list);
-			break;
-		case 2:
-			if (list->Length == 0)
-			{
-				cout << "Невозможно удалить элемент. Список не существует." << endl;
+			case 1:
+				CreateListInMenu(list);
 				break;
-			}
-			cout << "Введите индекс элемента, который хотите удалить: ";
-			int index;
-			InputValue(&index);
-			RemoveElement(list, index);
-			break;
-		case 3:
-			if (list->Length == 0)
-			{
-				cout << "Невозможно вставить элемент. Список не существует." << endl;
+			case 2:
+				if (list->Length == 0)
+				{
+					cout << "Невозможно удалить элемент. Список не существует." << endl;
+					break;
+				}
+				cout << "Введите индекс элемента, который хотите удалить: ";
+				int index;
+				InputValue(&index);
+				RemoveElement(list, index);
 				break;
-			}
-			ChoiceInsertMode(list);
-			break;
-		case 4:
-			if (list->Length == 0)
-			{
-				cout << "Невозможно отсортировать список, так как он не существует." << endl;
+			case 3:
+				if (list->Length == 0)
+				{
+					cout << "Невозможно вставить элемент. Список не существует." << endl;
+					break;
+				}
+				ChoiceInsertMode(list);
 				break;
-			}
-			SortList(list);
-			break;
-		case 5:
-			if (list->Length == 0)
-			{
-				cout << "Невозможно найти элемент. Список не существует." << endl;
+			case 4:
+				if (list->Length == 0)
+				{
+					cout << "Невозможно отсортировать список, так как он не существует." << endl;
+					break;
+				}
+				SortList(list);
 				break;
-			}
-			cout << "Введите значение элемента, который хотите найти: ";
-			int value;
-			InputValue(&value);
-			if (LinearSearch(list, value) != -1)
-			{
-				cout << "Элемент списка найден под индексом " 
-					<< LinearSearch(list, value) << "." << endl;
-			}
-			else
-			{
-				cout << "Элемент списка не найден." << endl;
-			}
-			break;
-		case 0:
-			exit(0);
-		default:
-			cout << "Неверное значение." << endl;
-			break;
+			case 5:
+				if (list->Length == 0)
+				{
+					cout << "Невозможно найти элемент. Список не существует." << endl;
+					break;
+				}
+				cout << "Введите значение элемента, который хотите найти: ";
+				int value;
+				InputValue(&value);
+				if (LinearSearch(list, value) != -1)
+				{
+					cout << "Элемент списка найден под индексом " 
+						<< LinearSearch(list, value) << "." << endl;
+				}
+				else
+				{
+					cout << "Элемент списка не найден." << endl;
+				}
+				break;
+			case 0:
+				exit(0);
+			default:
+				cout << "Неверное значение." << endl;
+				break;
 		}
 	}
 

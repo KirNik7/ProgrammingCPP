@@ -9,7 +9,6 @@ int main()
 	setlocale(LC_ALL, "Russian");
 	DynamicArray* dynamicArray = new DynamicArray;
 	//TODO: remove DONE
-	//there were flags here
 
 	while (true)
 	{

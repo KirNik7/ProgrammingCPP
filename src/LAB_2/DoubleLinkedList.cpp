@@ -36,12 +36,17 @@ void AddElement(List* list, int value)
 
 void RemoveElement(List* list, int index)
 {
+	if (index < 0 || index >= list->Length)
+	{
+		cout << "Неверный индекс." << endl;
+		return;
+	}
+		
 	if (index == 0)
 	{
 		if (list->Length == 1)
 		{
 			list->Head = nullptr;
-			list->Length = 0;
 			list->Tail = nullptr;
 		}
 		else

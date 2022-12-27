@@ -40,3 +40,8 @@ void GetArrayByUserInMenu(DynamicArray* dynamicArray, int length);
 /// @brief –еализует получение значений днамического массива.
 /// @return ¬озвращает элементы динамического массива.
 void PrintArrayInMenu(DynamicArray* dynamicArray);
+
+/// @brief ѕровер€ет, отсортирован ли динамический массив.
+/// @param dynamicArray ƒинамический массив.
+/// @return True - если массив отсортирован, False - если массив не отсортирован.
+bool ArrayIsSorted(DynamicArray dynamicArray);

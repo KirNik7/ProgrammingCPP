@@ -237,7 +237,7 @@ void BinarySearchInMenu(DynamicArray* dynamicArray)
 		return;
 	}
 
-	if (ArrayIsSorted == false)
+	if (ArrayIsSorted(*dynamicArray) == false)
 	{
 		cout << "Массив еще не отсортирован." << endl;
 		return;

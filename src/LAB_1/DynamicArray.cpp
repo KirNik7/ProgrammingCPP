@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int multiplierCapacity = 2;
+const int growFactory = 2;
 
 void CreateArray(DynamicArray* dynamicArray)
 {
@@ -18,14 +18,14 @@ void CreateArray(DynamicArray* dynamicArray)
 void ResizeArray(DynamicArray* dynamicArray)
 {
 	//TODO: to const DONE
-	dynamicArray->Capacity *= multiplierCapacity;
+	dynamicArray->Capacity *= growFactory;
 	UpdateArray(dynamicArray);
 }
 
 void ReductionArray(DynamicArray* dynamicArray)
 {
 	//TODO: to const DONE
-	dynamicArray->Capacity /= multiplierCapacity;
+	dynamicArray->Capacity /= growFactory;
 	UpdateArray(dynamicArray);
 }
 
@@ -157,7 +157,7 @@ void RemoveElement(DynamicArray* dynamicArray, int index)
 	dynamicArray->Length--;
 
 	//TODO: const DONE
-	if (dynamicArray->Length <= dynamicArray->Capacity / multiplierCapacity)
+	if (dynamicArray->Length <= dynamicArray->Capacity / growFactory)
 	{
 		ReductionArray(dynamicArray);
 	}

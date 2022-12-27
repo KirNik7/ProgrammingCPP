@@ -5,7 +5,6 @@
 
 using namespace std;
 
-//const for capacity
 const int multiplierCapacity = 2;
 
 void CreateArray(DynamicArray* dynamicArray)

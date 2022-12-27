@@ -3,11 +3,12 @@
 /// @brief Хранит информацию о динамическом массиве.
 struct DynamicArray
 {
-	//TODO:comments DONE
 	/// @brief Данные массива.
 	int* Array;
+
 	/// @brief Размер динамического массива.
 	int Capacity;
+
 	/// @brief Длина динамического массива.
 	int Length = 0;
 };

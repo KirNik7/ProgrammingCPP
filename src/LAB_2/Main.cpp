@@ -102,6 +102,7 @@ void CreateListInMenu(List* list)
 
 		switch (key)
 		{
+			//TODO:RSDN
 		case 1:
 			GetRandomList(list, count);
 			isHaveNotChoice = false;
@@ -121,6 +122,7 @@ void CreateListInMenu(List* list)
 
 void ChoiceInsertMode(List* list)
 {
+	//TODO: insert
 	int index = 0;
 	int mode = 0;
 	int value = 0;

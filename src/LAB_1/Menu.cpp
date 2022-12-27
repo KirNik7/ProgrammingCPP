@@ -4,8 +4,6 @@
 
 using namespace std;
 
-//TODO: remove DONE
-
 void InputValueInMenu(int* value)
 {
 	while (true)
@@ -61,7 +59,6 @@ void CreateArrayInMenu(DynamicArray* dynamicArray)
 
 		switch (key)
 		{
-			//TODO: DONE
 			case 1:
 				GetRandomArray(dynamicArray, count);
 				isHaveNotChoice = false;
@@ -154,7 +151,6 @@ void InsertELementInMenu(DynamicArray* dynamicArray)
 
 		switch (key)
 		{
-			//TODO: rsdn DONE
 			case 1:
 				index = 0;
 				InsertElement(dynamicArray, value, index);

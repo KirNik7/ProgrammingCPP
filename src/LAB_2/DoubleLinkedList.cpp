@@ -1,4 +1,5 @@
 #include "DoubleLinkedList.h";
+//TODO: remove
 #include <iostream>;
 #include <random>;
 #include <ctime>;
@@ -38,6 +39,7 @@ void RemoveElement(List* list, int index)
 {
 	if (index < 0 || index >= list->Length)
 	{
+		//TODO: remove
 		cout << "Неверный индекс." << endl;
 		return;
 	}

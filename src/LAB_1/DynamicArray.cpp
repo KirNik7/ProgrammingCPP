@@ -17,14 +17,12 @@ void CreateArray(DynamicArray* dynamicArray)
 
 void ResizeArray(DynamicArray* dynamicArray)
 {
-	//TODO: to const DONE
 	dynamicArray->Capacity *= growFactory;
 	UpdateArray(dynamicArray);
 }
 
 void ReductionArray(DynamicArray* dynamicArray)
 {
-	//TODO: to const DONE
 	dynamicArray->Capacity /= growFactory;
 	UpdateArray(dynamicArray);
 }
@@ -56,7 +54,6 @@ void AddElement(DynamicArray* dynamicArray, int value)
 
 void GetRandomArray(DynamicArray* dynamicArray, int length)
 {
-	//TODO: nullptr DONE
 	srand(time(nullptr));
 
 	for (int i = 0; i < length; i++)
@@ -100,8 +97,6 @@ void SortArray(DynamicArray* dynamicArray)
 
  int LinearSearch(DynamicArray* dynamicArray, int value)
 {
-	 //TODO: remove DONE
-
 	for (int i = 0; i < dynamicArray->Length; i++)
 	{
 		if (dynamicArray->Array[i] == value)
@@ -156,7 +151,6 @@ void RemoveElement(DynamicArray* dynamicArray, int index)
 
 	dynamicArray->Length--;
 
-	//TODO: const DONE
 	if (dynamicArray->Length <= dynamicArray->Capacity / growFactory)
 	{
 		ReductionArray(dynamicArray);

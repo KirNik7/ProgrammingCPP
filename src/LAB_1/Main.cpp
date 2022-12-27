@@ -8,7 +8,6 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	DynamicArray* dynamicArray = new DynamicArray;
-	//TODO: remove DONE
 
 	while (true)
 	{

@@ -1,5 +1,6 @@
 #pragma once
 
+//TODO: comments
 struct ListItem
 {
     /// @brief —ледующий элемент.
@@ -12,7 +13,7 @@ struct ListItem
     int Value = 0;
 };
 
-
+//TODO: comments
 struct List
 {
     /// @brief ”казатель на первый элемент списка.

@@ -1,6 +1,5 @@
 #include "DoubleLinkedList.h";
-//TODO: remove
-#include <iostream>;
+//TODO: remove DONE
 #include <random>;
 #include <ctime>;
 
@@ -37,13 +36,7 @@ void AddElement(List* list, int value)
 
 void RemoveElement(List* list, int index)
 {
-	if (index < 0 || index >= list->Length)
-	{
-		//TODO: remove
-		cout << "Неверный индекс." << endl;
-		return;
-	}
-		
+		//TODO: remove DONE
 	if (index == 0)
 	{
 		if (list->Length == 1)

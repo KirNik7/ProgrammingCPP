@@ -102,18 +102,18 @@ void CreateListInMenu(List* list)
 
 		switch (key)
 		{
-			//TODO:RSDN
-		case 1:
-			GetRandomList(list, count);
-			isHaveNotChoice = false;
-			break;
-		case 2:
-			GetList(list, count);
-			isHaveNotChoice = false;
-			break;
-		default:
-			cout << "Неверное значение.";
-			break;
+			//TODO:RSDN DONE
+			case 1:
+				GetRandomList(list, count);
+				isHaveNotChoice = false;
+				break;
+			case 2:
+				GetList(list, count);
+				isHaveNotChoice = false;
+				break;
+			default:
+				cout << "Неверное значение.";
+				break;
 		}
 	}
 
@@ -122,10 +122,8 @@ void CreateListInMenu(List* list)
 
 void ChoiceInsertMode(List* list)
 {
-	//TODO: insert
-	int index = 0;
+	//TODO: insert DONE
 	int mode = 0;
-	int value = 0;
 	while (true)
 	{
 		cout << "Выберите режим вставки: " << endl;
@@ -149,15 +147,19 @@ void ChoiceInsertMode(List* list)
 	{
 		case 1:
 			cout << "Введите значение элемента, который нужно вставить в начало списка: ";
+			int value = 0;
 			InputValue(&value);
 			InsertElementInBegin(list, value);
 			break;
 		case 2:
 			cout << "Введите значение элемента, который нужно вставить в конец списка: ";
+			int value = 0;
 			InputValue(&value);
 			AddElement(list, value);
 			break;
 		case 3:
+			int index = 0;
+			int value = 0;
 			while (true)
 			{
 				cout << "Введите индекс элемента, после которого нужно вставить новый элемент: ";
@@ -178,6 +180,8 @@ void ChoiceInsertMode(List* list)
 			InsertElementAfterCertainElement(list, index, value);
 			break;
 		case 4:
+			int index = 0;
+			int value = 0;
 			while (true)
 			{
 				cout << "Введите индекс элемента, перед которым нужно вставить новый элемент: ";
@@ -237,8 +241,15 @@ int main()
 					break;
 				}
 				cout << "Введите индекс элемента, который хотите удалить: ";
-				int index;
+				int index = 0;
 				InputValue(&index);
+				
+				if (index < 0 || index >= list->Length)
+				{
+					cout << "Неверный индекс." << endl;
+					break;
+				}
+				
 				RemoveElement(list, index);
 				break;
 			case 3:

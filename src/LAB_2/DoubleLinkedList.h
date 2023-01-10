@@ -1,6 +1,8 @@
 #pragma once
 
-//TODO: comments
+//TODO: comments DONE
+
+/// @brief Хранит информацию об элементе списка.
 struct ListItem
 {
     /// @brief Следующий элемент.
@@ -13,7 +15,9 @@ struct ListItem
     int Value = 0;
 };
 
-//TODO: comments
+//TODO: comments DONE
+
+/// @brief Хранит информацию о списке.
 struct List
 {
     /// @brief Указатель на первый элемент списка.

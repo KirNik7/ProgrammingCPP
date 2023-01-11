@@ -1,33 +1,21 @@
 #pragma once
 
-/**
- * \brief Представляет реализацию по представлению стека.
- */
+ /// @brief Представляет реализацию по представлению стека.
 struct Stack
 {
-	/**
-	 * \brief Буфер.
-	 */
+	 /// @brief Буфер.
 	int* Buffer;
 
-	/**
-	 * \brief Элемент вершины стека.
-	 */
+	 /// @brief Элемент вершины стека.
 	int Top;
 
-	/**
-	 * \brief Емкость.
-	 */
+	 /// @brief Емкость.
 	int Capacity;
 
-	/**
-	 * \brief Число роста стека.
-	 */
+	 /// @brief Число роста стека.
 	const int GrowthFactor = 2;
 
-	/**
-	 * \brief Создает экземпляр класса Stack
-	 */
+	 /// @brief Создает экземпляр класса Stack
 	Stack()
 	{
 		Buffer = new int[4];
@@ -36,36 +24,26 @@ struct Stack
 	}
 };
 
-/**
- * \brief Заполняет стек значениями.
- * \param size Размер.
- * \return Возвращает стек.
- */
+ /// @brief Заполняет стек значениями.
+ /// @param size - размер.
+ /// @return Возвращает стек.
 Stack* InitStack(int size);
 
-/**
- * \brief Вставляет элемент в стек.
- * \param stack Стек.
- * \param data Значение.
- * \return Возвращает true, если элемент был вставлен, иначе false.
- */
+ /// @brief Вставляет элемент в стек.
+ /// @param stack - стек.
+ /// @param data - значение.
+ /// @return Возвращает true, если элемент был вставлен, иначе false.
 bool PushStack(Stack* stack, int data);
 
-/**
- * \brief Вытаскивает элемент из стека.
- * \param stack Стек.
- * \return Возвращает значение достанного элемента.
- */
+ /// @brief Вытаскивает элемент из стека.
+ /// @param stack - стек.
+ /// @return Возвращает значение вытащенного элемента.
 int PopStack(Stack* stack);
 
-/**
- * \brief Удаляет стек.
- * \param stack Стек.
- */
+ /// @brief Удаляет стек.
+ /// @param stack - стек.
 void DeleteStack(Stack* stack);
 
-/**
- * \brief Изменяет размер стека.
- * \param stack Стек.
- */
+ /// @brief Изменяет размер стека.
+ /// @param stack - стек.
 void Resize(Stack* stack);

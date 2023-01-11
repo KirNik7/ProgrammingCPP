@@ -19,14 +19,14 @@ int InputValue(string outputString)
 		{
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			cout << "Произошла ошибка. Попробуйте снова" << endl;
+			cout << "Неверный ввод, повторите." << endl;
 			continue;
 		}
 
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		if (cin.gcount() > 1)
 		{
-			cout << "Произошла ошибка. Попробуйте снова" << endl;
+			cout << "Неверный ввод, повторите." << endl;
 			continue;
 		}
 
@@ -50,13 +50,13 @@ string InputString(string outputString)
 void MenuDictionary()
 {
 	Dictionary* dictionary = new Dictionary();
-	cout << "Выберите пункт меню" << endl;
+	cout << "Функции для работы со словарем:" << endl;
 	while (true)
 	{
-		cout << "1. Добавить элемент в словарь" << endl;
-		cout << "2. Удалить элемент из словаря" << endl;
-		cout << "3. Найти элемент по ключу" << endl;
-		cout << "0. Выйти в главное меню" << endl;
+		cout << "1) Добавить элемент в словарь" << endl;
+		cout << "2) Удалить элемент из словаря" << endl;
+		cout << "3) Найти элемент по ключу" << endl;
+		cout << "0) Выход в меню" << endl;
 		int key = InputValue("");
 		switch (key)
 		{
@@ -102,7 +102,7 @@ void MenuDictionary()
 				return;
 			}
 			default:
-				cout << "Введено неверное значение. Попробуйте снова" << endl;
+				cout << "Неверный ввод, повторите." << endl;
 				break;
 			}
 	}
@@ -111,14 +111,14 @@ void MenuDictionary()
 void MenuHashTable()
 {
 	HashTable* table = CreateTable(4);
-	cout << "Выберите пункт меню" << endl;
+	cout << "Функции для работы с хеш-таблицей:" << endl;
 	while(true)
 	{
 		//TODO: убрать в HashTable 
-		cout << "1. Добавить элемент в таблицу" << endl;
-		cout << "2. Удалить элемент из таблицы" << endl;
-		cout << "3. Найти элемент по ключу" << endl;
-		cout << "0. Выйти в главное меню" << endl;
+		cout << "1) Добавить элемент в таблицу" << endl;
+		cout << "2) Удалить элемент из таблицы" << endl;
+		cout << "3) Найти элемент по ключу" << endl;
+		cout << "0) Выход в меню" << endl;
 		int key = InputValue("");
 		switch (key)
 		{
@@ -165,7 +165,7 @@ void MenuHashTable()
 				return;
 			}
 			default:
-				cout << "Введено неверное значение. Попробуйте снова" << endl;
+				cout << "Неверный ввод, повторите." << endl;
 				break;
 		}
 	}
@@ -200,14 +200,13 @@ void PrintHashTable(HashTable* table)
 
 void Menu()
 {
-	cout << "Добро пожаловать!" << endl;
-	cout << "Выберите функцию из списка ниже" << endl;
+	cout << "Выберите, с какой структурой данных нужно работать:" << endl;
 
 	while (true)
 	{
-		cout << "1. Хеш-таблица" << endl;
-		cout << "2. Словарь" << endl;
-		cout << "0. Выйти" << endl;
+		cout << "1) Хеш-таблица" << endl;
+		cout << "2) Словарь" << endl;
+		cout << "0) Выход" << endl;
 
 		int key = InputValue("");
 		switch (key)
@@ -221,7 +220,7 @@ void Menu()
 			case 0:
 				return;
 			default:
-				cout << "Введено неверное значение. Попробуйте снова" << endl;
+				cout << "Неверный ввод, повторите." << endl;
 				break;
 		}
 	}

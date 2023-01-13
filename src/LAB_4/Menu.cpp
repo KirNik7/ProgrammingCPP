@@ -33,6 +33,7 @@ int InputValue(string outputString)
 		break;
 	}
 
+	system("cls");
 	return value;
 }
 

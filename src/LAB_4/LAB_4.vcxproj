@@ -129,7 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Dictionary.cpp" />
     <ClCompile Include="HashTable.cpp" />
-    <ClCompile Include="LAB_4.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>

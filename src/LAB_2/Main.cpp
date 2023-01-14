@@ -28,11 +28,13 @@ void InputValue(int* value)
 	while (true)
 	{
 		cin >> *value;
+		system("cls");
 
 		if (!cin.fail()) return;
 
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		system("cls");
 		cout << "Неверное значение, введите число: ";
 	}
 }
@@ -146,18 +148,23 @@ void ChoiceInsertMode(List* list)
 	switch (mode)
 	{
 		case 1:
+		{
 			cout << "Введите значение элемента, который нужно вставить в начало списка: ";
 			int value = 0;
 			InputValue(&value);
 			InsertElementInBegin(list, value);
 			break;
+		}
 		case 2:
+		{
 			cout << "Введите значение элемента, который нужно вставить в конец списка: ";
 			int value = 0;
 			InputValue(&value);
 			AddElement(list, value);
 			break;
+		}
 		case 3:
+		{
 			int index = 0;
 			int value = 0;
 			while (true)
@@ -170,16 +177,18 @@ void ChoiceInsertMode(List* list)
 				}
 				else
 				{
-					cout << "Неверное значение. Индекс должен быть " 
+					cout << "Неверное значение. Индекс должен быть "
 						<< "в пределах от 0 до длины списка." << endl;
 				}
 			}
-			cout << "Введите значение элемента, который нужно вставить после " 
+			cout << "Введите значение элемента, который нужно вставить после "
 				<< index << " элемента списка: ";
 			InputValue(&value);
 			InsertElementAfterCertainElement(list, index, value);
 			break;
+		}
 		case 4:
+		{
 			int index = 0;
 			int value = 0;
 			while (true)
@@ -196,14 +205,17 @@ void ChoiceInsertMode(List* list)
 						<< "в пределах от 0 до длины списка." << endl;
 				}
 			}
-			cout << "Введите значение элемента, который нужно вставить перед " 
+			cout << "Введите значение элемента, который нужно вставить перед "
 				<< index << " элементом списка: ";
 			InputValue(&value);
 			InsertElementBeforeCertainElement(list, index, value);
 			break;
+		}
 		default:
+		{
 			cout << "Неверное значение." << endl;
 			break;
+		}
 	}
 }
 		
@@ -232,9 +244,12 @@ int main()
 		switch (key)
 		{
 			case 1:
+			{
 				CreateListInMenu(list);
 				break;
+			}
 			case 2:
+			{
 				if (list->Length == 0)
 				{
 					cout << "Невозможно удалить элемент. Список не существует." << endl;
@@ -243,16 +258,18 @@ int main()
 				cout << "Введите индекс элемента, который хотите удалить: ";
 				int index = 0;
 				InputValue(&index);
-				
+
 				if (index < 0 || index >= list->Length)
 				{
 					cout << "Неверный индекс." << endl;
 					break;
 				}
-				
+
 				RemoveElement(list, index);
 				break;
+			}
 			case 3:
+			{
 				if (list->Length == 0)
 				{
 					cout << "Невозможно вставить элемент. Список не существует." << endl;
@@ -260,7 +277,9 @@ int main()
 				}
 				ChoiceInsertMode(list);
 				break;
+			}
 			case 4:
+			{
 				if (list->Length == 0)
 				{
 					cout << "Невозможно отсортировать список, так как он не существует." << endl;
@@ -268,7 +287,9 @@ int main()
 				}
 				SortList(list);
 				break;
+			}
 			case 5:
+			{
 				if (list->Length == 0)
 				{
 					cout << "Невозможно найти элемент. Список не существует." << endl;
@@ -279,7 +300,7 @@ int main()
 				InputValue(&value);
 				if (LinearSearch(list, value) != -1)
 				{
-					cout << "Элемент списка найден под индексом " 
+					cout << "Элемент списка найден под индексом "
 						<< LinearSearch(list, value) << "." << endl;
 				}
 				else
@@ -287,11 +308,16 @@ int main()
 					cout << "Элемент списка не найден." << endl;
 				}
 				break;
+			}
 			case 0:
+			{
 				exit(0);
+			}
 			default:
+			{
 				cout << "Неверное значение." << endl;
 				break;
+			}
 		}
 	}
 

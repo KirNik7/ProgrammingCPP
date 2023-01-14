@@ -1,15 +1,15 @@
 #pragma once
 #include <string>
 
- /// @brief Представляет реализацию по представлению элемента.
+/// @brief Представляет реализацию по представлению элемента.
 struct Element
 {
-	 /// @brief Ключ.
+	/// @brief Ключ.
 	std::string Key;
 
-	 /// @brief Значение.
+	/// @brief Значение.
 	std::string Value;
 
-	 /// @brief Указатель на следующий элемент.
+	/// @brief Указатель на следующий элемент.
 	Element* Next;
 };

@@ -11,14 +11,17 @@ bool InsertElement(Dictionary* dictionary, Element* element, std::string key)
 {
 	int newIndex = HashFunc(key, dictionary->Table->Size);
 	Element* current = dictionary->Table->Array[newIndex]->Head;
+
 	while (current != nullptr)
 	{
 		if (current->Key == element->Key)
 		{
 			return false;
 		}
+
 		current = current->Next;
 	}
+
 	InsertElement(dictionary->Table, element, newIndex);
 	return true;
 }

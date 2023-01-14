@@ -1,12 +1,12 @@
 #pragma once
 #include "Element.h"
 
- /// @brief Представляет структуру данных цепочки.
+/// @brief Представляет структуру данных цепочки.
 struct Chain
 {
-	 /// @brief Элемент "Голова".
+	/// @brief Элемент "Голова".
 	Element* Head;
 
-	 /// @brief Размер.
+	/// @brief Размер.
 	int Size;
 };

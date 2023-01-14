@@ -12,9 +12,11 @@ int InputValue(string outputString)
 	}
 
 	int value;
+
 	while (true)
 	{
 		cin >> value;
+
 		if (cin.fail())
 		{
 			cin.clear();
@@ -24,6 +26,7 @@ int InputValue(string outputString)
 		}
 
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
 		if (cin.gcount() > 1)
 		{
 			cout << "Неверный ввод, повторите." << endl;
@@ -43,6 +46,7 @@ string InputString(string outputString)
 	{
 		cout << outputString;
 	}
+
 	string str;
 	cin >> str;
 	system("cls");
@@ -52,6 +56,7 @@ string InputString(string outputString)
 void MenuDictionary()
 {
 	Dictionary* dictionary = new Dictionary();
+
 	while (true)
 	{
 		cout << "Функции для работы со словарем:\n" << endl;
@@ -60,6 +65,7 @@ void MenuDictionary()
 		cout << "3) Найти элемент по ключу" << endl;
 		cout << "0) Выход в меню" << endl;
 		int key = InputValue("\nВыбор: ");
+
 		switch (key)
 		{
 			case 1:
@@ -67,10 +73,12 @@ void MenuDictionary()
 				string key = InputString("Введите ключ: ");
 				string value = InputString("Введите значение: ");
 				Element* element = CreateElement(key, value);
+
 				if (!InsertElement(dictionary, element, key))
 				{
 					cout << "Такой элемент уже существует" << endl;
 				}
+
 				PrintHashTable(dictionary->Table);
 				cout << endl;
 				break;
@@ -78,10 +86,12 @@ void MenuDictionary()
 			case 2:
 			{
 				string key = InputString("Введите ключ: ");
+
 				if (!RemoveElement(dictionary, key))
 				{
 					cout << "Такого элемента не существует" << endl;
 				}
+
 				PrintHashTable(dictionary->Table);
 				cout << endl;
 				break;
@@ -90,6 +100,7 @@ void MenuDictionary()
 			{
 				string key = InputString("Введите ключ: ");
 				string data;
+
 				if (FindElement(dictionary, key, data))
 				{
 					cout << "Найденная информация: " << data << endl;
@@ -98,6 +109,7 @@ void MenuDictionary()
 				{
 					cout << "Не найдено" << endl;
 				}
+
 				break;
 			}
 			case 0:
@@ -115,6 +127,7 @@ void MenuDictionary()
 void MenuHashTable()
 {
 	HashTable* table = CreateTable(4);
+
 	while(true)
 	{
 		cout << "Функции для работы с хеш-таблицей:\n" << endl;
@@ -124,6 +137,7 @@ void MenuHashTable()
 		cout << "4) Вывести хеш-таблицу" << endl;
 		cout << "0) Выход в меню" << endl;
 		int key = InputValue("\nВыбор: ");
+
 		switch (key)
 		{
 			case 1:
@@ -132,10 +146,12 @@ void MenuHashTable()
 				string value = InputString("Введите значение: ");
 				Element* element = CreateElement(key, value);
 				int index = HashFunc(key, table->Size);
+
 				if (!InsertElement(table, element, index))
 				{
 					cout << "Такой элемент уже существует" << endl;
 				}
+
 				PrintHashTable(table);
 				cout << endl;
 				break;
@@ -143,10 +159,12 @@ void MenuHashTable()
 			case 2:
 			{
 				string key = InputString("Введите ключ: ");
+
 				if (!RemoveElement(table, key))
 				{
 					cout << "Такого элемента не существует" << endl;
 				}
+
 				PrintHashTable(table);
 				cout << endl;
 				break;
@@ -155,6 +173,7 @@ void MenuHashTable()
 			{
 				string key = InputString("Введите ключ: ");
 				string data;
+
 				if (FindElement(table, key, data))
 				{
 					cout << "Найденная информация: " << data << endl;
@@ -163,6 +182,7 @@ void MenuHashTable()
 				{
 					cout << "Не найдено" << endl;
 				}
+
 				break;
 			}
 			case 4:
@@ -186,6 +206,7 @@ void MenuHashTable()
 void PrintHashTable(HashTable* table)
 {
 	Element* current;
+
 	for (int i = 0; i < table->Size; i++)
 	{
 		current = table->Array[i]->Head;
@@ -218,8 +239,8 @@ void Menu()
 		cout << "1) Хеш-таблица" << endl;
 		cout << "2) Словарь" << endl;
 		cout << "0) Выход" << endl;
-
 		int key = InputValue("\nВыбор: ");
+
 		switch (key)
 		{
 			case 1:

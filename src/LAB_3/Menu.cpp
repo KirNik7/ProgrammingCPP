@@ -11,7 +11,7 @@ int InputValue(string outputString)
 {
 	if (outputString != "")
 	{
-		cout << outputString << endl;
+		cout << outputString;
 	}
 
 	int value;
@@ -144,7 +144,7 @@ int RingBufferSize()
 	int size;
 	while (true)
 	{
-		size = InputValue("Введите размер");
+		size = InputValue("Введите размер: ");
 		if (size <= 0)
 		{
 			cout << "Введен не корректный размер" << endl;
@@ -162,14 +162,14 @@ void MenuQueueRingBuffer()
 
 	while (true)
 	{
-		cout << "Функции для очереди на базе кольцевого буфера:" << endl;
+		cout << "Функции для очереди на базе кольцевого буфера:\n" << endl;
 		cout << "1) Создать очередь" << endl;
 		cout << "2) Добавить элемент в очередь" << endl;
 		cout << "3) Извлечь элемент из очереди" << endl;
 		cout << "4) Вывести очередь" << endl;
-		cout << "0) Выход" << endl;
+		cout << "0) Выход в меню" << endl;
 
-		int key = InputValue("");
+		int key = InputValue("\nВыбор: ");
 		switch (key)
 		{
 			case 1:
@@ -187,7 +187,7 @@ void MenuQueueRingBuffer()
 			case 2:
 			{
 				if (!QueueRingBufferIsCreated(queue)) break;
-				int value = InputValue("Введите значение");
+				int value = InputValue("Введите значение: ");
 				EnqueueBuffer(queue, value);
 				PrintQueueBuffer(queue);
 				break;
@@ -217,15 +217,15 @@ void MenuQueueStack()
 	QueueStack* queue = nullptr;
 	while (true)
 	{
-		cout << "Функции для очереди на базе двух стеков:" << endl;
+		cout << "Функции для очереди на базе двух стеков:\n" << endl;
 		cout << "1) Создать очередь" << endl;
 		cout << "2) Добавить элемент в очередь" << endl;
 		cout << "3) Извлечь элемент из очереди" << endl;
 		cout << "4) Увеличить размер очереди" << endl;
 		cout << "5) Вывести очередь" << endl;
-		cout << "0) Выход" << endl;
+		cout << "0) Выход в меню" << endl;
 
-		int key = InputValue("");
+		int key = InputValue("\nВыбор: ");
 		switch (key)
 		{
 			case 1:
@@ -240,7 +240,7 @@ void MenuQueueStack()
 			case 2:
 			{
 				if (!QueueStackIsCreated(queue)) break;
-				int value = InputValue("Введите число");
+				int value = InputValue("Введите число: ");
 				if (!Enqueue(queue, value))
 				{
 					cout << "Очередь переполнена" << endl;
@@ -287,7 +287,7 @@ void MenuRingBuffer()
 	RingBuffer* buffer = nullptr;
 	while (true)
 	{
-		cout << "Функции для кольцевого буфера:" << endl;
+		cout << "Функции для кольцевого буфера:\n" << endl;
 		cout << "1) Создать буфер" << endl;
 		cout << "2) Вернуть свободное место" << endl;
 		cout << "3) Вернуть занятое место" << endl;
@@ -295,9 +295,9 @@ void MenuRingBuffer()
 		cout << "5) Достать элемент" << endl;
 		cout << "6) Увеличить размер буфера на 1 элемент" << endl;
 		cout << "7) Вывести буфер" << endl;
-		cout << "0) Выход" << endl;
+		cout << "0) Выход в меню" << endl;
 
-		int key = InputValue("");
+		int key = InputValue("\nВыбор: ");
 		switch (key)
 		{
 			case 1:
@@ -323,7 +323,7 @@ void MenuRingBuffer()
 			case 4:
 			{
 				if (!RingBufferIsCreated(buffer)) break;
-				int data = InputValue("Введите число");
+				int data = InputValue("Введите число: ");
 				PushElement(buffer, data);
 				PrintBuffer(buffer);
 				break;
@@ -361,14 +361,14 @@ void MenuStack()
 	Stack* stack = nullptr;
 	while (true)
 	{
-		cout << "Функции для стека:" << endl;
+		cout << "Функции для стека:\n" << endl;
 		cout << "1) Создать стек" << endl;
 		cout << "2) Добавить элемент в стек" << endl;
 		cout << "3) Удалить элемент из стека" << endl;
 		cout << "4) Увеличить размер стека" << endl;
 		cout << "5) Вывести стек" << endl;
-		cout << "0) Выход" << endl;
-		int key = InputValue("");
+		cout << "0) Выход в меню" << endl;
+		int key = InputValue("\nВыбор: ");
 		switch (key)
 		{
 			case 1:
@@ -378,7 +378,7 @@ void MenuStack()
 					cout << "Стек уже создан" << endl;
 					break;
 				}
-				int size = InputValue("Введите размер стека");
+				int size = InputValue("Введите размер стека: ");
 				stack = InitStack(size);
 				cout << "Стек успешно создан" << endl;
 				PrintStack(stack);
@@ -387,7 +387,7 @@ void MenuStack()
 			case 2:
 			{
 				if (!StackIsCreated(stack)) break;
-				int value = InputValue("Введите значение элемента");
+				int value = InputValue("Введите значение элемента: ");
 				if (!PushStack(stack, value))
 				{
 					cout << "Стек переполнен" << endl;
@@ -421,17 +421,16 @@ void MenuStack()
 
 void Menu()
 {
-	cout << "Выберите абстрактную структуру данных, с которой нужно работать:" << endl;
-
 	while (true)
 	{
+		cout << "Выберите абстрактную структуру данных, с которой нужно работать:\n" << endl;
 		cout << "1) Стек" << endl;
 		cout << "2) Кольцевой буфер" << endl;
 		cout << "3) Очередь на базе кольцевого буфера" << endl;
 		cout << "4) Очередь на базе двух стеков" << endl;
 		cout << "0) Выход" << endl;
 
-		int key = InputValue("");
+		int key = InputValue("\nВыбор: ");
 		switch (key)
 		{
 			case 1:
